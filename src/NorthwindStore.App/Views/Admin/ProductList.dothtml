@@ -1,0 +1,77 @@
+﻿@viewModel NorthwindStore.App.ViewModels.Admin.ProductListViewModel, NorthwindStore.App
+@masterPage Views/Admin/admin.dotmaster
+
+<dot:Content ContentPlaceHolderID="AdminContent">
+
+    <div class="toolbar">
+        <dot:RouteLink RouteName="Admin_ProductDetail" class="dotvvm-bp-button">
+            <bp:FAIcon Icon="Plus" /> New Product
+        </dot:RouteLink>
+        <dot:LinkButton Click="{staticCommand: OrderDialog.IsDisplayed = true}" class="dotvvm-bp-button" Visible="{value: OrderDialog.SelectedProductIds.Count > 0}">
+            <bp:FAIcon Icon="List" /> Order Items
+        </dot:LinkButton>
+    </div>
+
+    <bp:Panel HeaderText="Product Filters" DataContext="{value: Filter}">
+        <form>
+            <div class="filter">
+                <label>Product Name</label>
+                <bp:TextBox Text="{value: SearchText}" placeholder="Search" />
+            </div>
+            <div class="filter">
+                <label>Category</label>
+                <bp:DropDownList DataSource="{value: _root.Categories}" SelectedValue="{value: CategoryId}" ItemTextBinding="{value: CategoryName}" ItemValueBinding="{value: Id}" />
+            </div>
+            <div class="filter">
+                <label>Supplier</label>
+                <bp:DropDownList DataSource="{value: _root.Suppliers}" SelectedValue="{value: SupplierId}" ItemTextBinding="{value: CompanyName}" ItemValueBinding="{value: Id}" />
+            </div>
+            <div class="filter-button">
+                <bp:Button Text="Apply Filter" Click="{command: _root.ApplyFilter()}" Validation.Enabled="false" IsSubmitButton="true" />
+            </div>
+        </form>
+    </bp:Panel>
+
+    <bp:GridView DataSource="{value: Items}">
+        <RowDecorators>
+            <dot:Decorator class-row-warning="{value: UnitsInStock + UnitsOnOrder < ReorderLevel}" />
+        </RowDecorators>
+
+        <bp:GridViewTemplateColumn>
+            <bp:CheckBox CheckedValue="{value: Id}" CheckedItems="{value: _root.OrderDialog.SelectedProductIds}" />
+        </bp:GridViewTemplateColumn>
+
+        <bp:GridViewTextColumn ValueBinding="{value: Id}" HeaderText="Id" Width="50px" />
+        <bp:GridViewTextColumn ValueBinding="{value: ProductName}" HeaderText="Name" />
+        <bp:GridViewTextColumn ValueBinding="{value: CategoryName}" HeaderText="Category" />
+        <bp:GridViewTextColumn ValueBinding="{value: SupplierName}" HeaderText="Supplier" />
+        <bp:GridViewTextColumn ValueBinding="{value: QuantityPerUnit}" HeaderText="Qty/Unit" />
+        <bp:GridViewTextColumn ValueBinding="{value: UnitPrice}" HeaderText="Unit Price" FormatString="c2" />
+        <bp:GridViewTextColumn ValueBinding="{value: UnitsInStock}" HeaderText="Units in Stock" FormatString="n2" />
+        <bp:GridViewTextColumn ValueBinding="{value: UnitsOnOrder}" HeaderText="Units on Order" FormatString="n2" />
+        <bp:GridViewTextColumn ValueBinding="{value: ReorderLevel}" HeaderText="Reorder Level" FormatString="n2" />
+        <bp:GridViewCheckBoxColumn ValueBinding="{value: Discontinued}" HeaderText="Discontinued" />
+
+        <bp:GridViewTemplateColumn CssClass="icon">
+            <dot:RouteLink RouteName="Admin_ProductDetail" Param-Id="{value: Id}">
+                <bp:FAIcon Icon="Pencil" />
+            </dot:RouteLink>
+        </bp:GridViewTemplateColumn>
+
+        <bp:GridViewTemplateColumn CssClass="icon">
+            <dot:LinkButton Click="{command: _root.Delete(Id)}">
+                <PostBack.Handlers>
+                    <dot:ConfirmPostBackHandler Message="Do you really want to delete the product?" />
+                </PostBack.Handlers>
+
+                <bp:FAIcon Icon="Remove" />
+            </dot:LinkButton>
+        </bp:GridViewTemplateColumn>
+    </bp:GridView>
+
+    <bp:DataPager DataSet="{value: Items}" />
+
+    <cc:ProductListOrderDialog DataContext="{value: OrderDialog}" />
+    
+</dot:Content>
+

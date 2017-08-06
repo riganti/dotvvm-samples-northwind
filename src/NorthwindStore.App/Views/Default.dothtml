@@ -1,0 +1,34 @@
+﻿@viewModel NorthwindStore.App.ViewModels.DefaultViewModel, NorthwindStore.App
+@masterPage Views/Layout.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <div class="login-box">
+
+        <bp:Alert Type="{value: AlertType}" Text="{value: AlertText}" />
+
+        <form class="form" DataContext="{value: Login}">
+            
+            <div class="form-field" Validator.Value="{value: UserName}">
+                <label>User Name</label>
+                <div>
+                    <bp:TextBox Text="{value: UserName}" name="username" />
+                </div>
+            </div>
+
+            <div class="form-field" Validator.Value="{value: Password}">
+                <label>Password</label>
+                <div>
+                    <bp:TextBox Text="{value: Password}" name="password" Type="Password" />
+                </div>
+            </div>
+
+            <div class="form-button">
+                <bp:Button Text="Sign In" Click="{command: _root.SignIn()}" IsSubmitButton="true" />
+            </div>
+        </form>
+
+    </div>            
+
+</dot:Content>
+

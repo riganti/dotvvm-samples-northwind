@@ -1,0 +1,36 @@
+﻿@viewModel NorthwindStore.App.ViewModels.Admin.RegionListViewModel, NorthwindStore.App
+@masterPage Views/Admin/Admin.dotmaster
+
+<dot:Content ContentPlaceHolderID="AdminContent">
+
+    <div class="toolbar">
+        <dot:RouteLink RouteName="Admin_RegionDetail" class="dotvvm-bp-button">
+            <bp:FAIcon Icon="Plus" /> New Region
+        </dot:RouteLink> 
+    </div>
+
+    <bp:GridView DataSource="{value: Regions}">
+        <bp:GridViewTextColumn ValueBinding="{value: Id}" HeaderText="Id" Width="50px" />
+        <bp:GridViewTextColumn ValueBinding="{value: RegionDescription}" HeaderText="Description" />
+
+        <bp:GridViewTemplateColumn CssClass="icon">
+            <dot:RouteLink RouteName="Admin_RegionDetail" Param-Id="{value: Id}">
+                <bp:FAIcon Icon="Pencil" />
+            </dot:RouteLink>
+        </bp:GridViewTemplateColumn>
+
+        <bp:GridViewTemplateColumn CssClass="icon">
+            <dot:LinkButton Click="{command: _root.Delete(Id)}">
+                <PostBack.Handlers>
+                    <dot:ConfirmPostBackHandler Message="Do you really want to delete the region?" />
+                </PostBack.Handlers>
+
+                <bp:FAIcon Icon="Remove" />
+            </dot:LinkButton>
+        </bp:GridViewTemplateColumn>
+    </bp:GridView>
+
+    <bp:DataPager DataSet="{value: Regions}" />
+    
+</dot:Content>
+

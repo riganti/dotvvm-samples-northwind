@@ -1,0 +1,55 @@
+﻿@viewModel NorthwindStore.App.ViewModels.Admin.CategoryDetailViewModel, NorthwindStore.App
+@masterPage Views/Admin/Admin.dotmaster
+
+<dot:Content ContentPlaceHolderID="AdminContent">
+
+    <div class="toolbar">
+        <bp:Button Click="{command: Save()}" ButtonTagName="button">
+            <bp:FAIcon Icon="Save" /> Save Changes
+        </bp:Button>
+        <bp:Button Click="{command: Cancel()}" ButtonTagName="button" Validation.Enabled="false">
+            <bp:FAIcon Icon="Undo" /> Cancel
+        </bp:Button>
+    </div>
+
+    <div class="form" DataContext="{value: CurrentItem}">
+
+        <div class="form-field" Visible="{value: !_root.IsNew}">
+            <label>ID</label>
+            <div>
+                {{value: Id}}
+            </div>
+        </div>
+
+        <div class="form-field" Validator.Value="{value: CategoryName}">
+            <label>Name</label>
+            <div>
+                <bp:TextBox Text="{value: CategoryName}" />
+            </div>
+        </div>
+
+        <div class="form-field" Validator.Value="{value: Description}">
+            <label>Description</label>
+            <div>
+                <bp:TextBox Text="{value: Description}" Type="MultiLine" />
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label>Picture</label>
+            <div Visible="{value: HasPicture}">
+                <img src="{value: "/image/category/" + Id}" alt="Picture" class="uploaded-image" Visible="{value: !_root.PictureChanged}" />
+                <p Visible="{value: _root.PictureChanged}">A new picture was uploaded.</p>
+
+                <bp:Button Text="Remove Image" Click="{command: _root.RemovePicture()}" Validation.Enabled="false" />
+            </div>
+            <div Visible="{value: !HasPicture}">
+                <bp:FileUpload Data="{value: _root.PictureData}" AllowMultipleFiles="false" 
+                               UploadCompleted="{command: _root.SetNewPicture()}" Validation.Enabled="false" />
+            </div>
+        </div>
+
+    </div>
+
+</dot:Content>
+

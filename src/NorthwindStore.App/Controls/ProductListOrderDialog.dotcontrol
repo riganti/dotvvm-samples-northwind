@@ -1,0 +1,22 @@
+﻿@viewModel NorthwindStore.App.ViewModels.Admin.ProductListOrderDialog, NorthwindStore.App
+
+<bp:ModalDialog IsDisplayed="{value: IsDisplayed}" Validation.Target="{value: _this}">
+    <HeaderTemplate>Order Items</HeaderTemplate>
+    <ContentTemplate>
+
+        <div class="form">
+
+            <div class="form-field" Validator.Value="{value: OrderedQuantity}">
+                <label>Qty to Order</label>
+                <div>
+                    <bp:TextBox Text="{value: OrderedQuantity}" />
+                </div>
+            </div>
+        </div>
+
+    </ContentTemplate>
+    <FooterTemplate>
+        <bp:Button Text="Submit Order" Click="{command: SubmitOrder()}" />
+        <bp:Button Text="Cancel" Click="{staticCommand: IsDisplayed = false}" Validation.Enabled="false" />
+    </FooterTemplate>
+</bp:ModalDialog>

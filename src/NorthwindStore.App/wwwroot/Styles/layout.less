@@ -1,0 +1,44 @@
+﻿html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header-container {
+    background-color: #f8f8f8;
+    height: 80px;
+    position: relative;
+    border-bottom: double 3px #c0c0c0;
+
+    h1 {
+        margin: 0px;
+        padding-left: 20px;
+        line-height: 80px;
+        font-weight: 500;
+    }
+
+    menu {
+        position: absolute;
+        right: 0px;
+        bottom: -1px;
+    }
+
+    .signout-box {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+.content-container {
+    clear: both;
+    padding: 20px;
+
+    h2 {
+        color: @accentColor;
+
+        &:before {
+            content: '\25A0';
+            margin-right: 5px;
+        }
+    }
+}

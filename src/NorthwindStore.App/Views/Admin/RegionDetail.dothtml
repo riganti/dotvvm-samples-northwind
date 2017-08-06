@@ -1,0 +1,34 @@
+﻿@viewModel NorthwindStore.App.ViewModels.Admin.RegionDetailViewModel, NorthwindStore.App
+@masterPage Views/Admin/Admin.dotmaster
+
+<dot:Content ContentPlaceHolderID="AdminContent">
+
+    <div class="toolbar">
+        <bp:Button Click="{command: Save()}" ButtonTagName="button">
+            <bp:FAIcon Icon="Save" /> Save Changes
+        </bp:Button> 
+        <bp:Button Click="{command: Cancel()}" ButtonTagName="button" Validation.Enabled="false">
+            <bp:FAIcon Icon="Undo" /> Cancel
+        </bp:Button> 
+    </div>
+
+    <div class="form" DataContext="{value: CurrentItem}">
+
+        <div class="form-field" Visible="{value: !_root.IsNew}">
+            <label>ID</label>
+            <div>
+                {{value: Id}}
+            </div>
+        </div>
+
+        <div class="form-field" Validator.Value="{value: RegionDescription}">
+            <label>Description</label>
+            <div>
+                <bp:TextBox Text="{value: RegionDescription}" />
+            </div>
+        </div>
+
+    </div>
+
+</dot:Content>
+

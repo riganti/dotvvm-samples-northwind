@@ -1,0 +1,41 @@
+﻿@viewModel NorthwindStore.App.ViewModels.Admin.CategoryListViewModel, NorthwindStore.App
+@masterPage Views/Admin/Admin.dotmaster
+
+<dot:Content ContentPlaceHolderID="AdminContent">
+
+    <div class="toolbar">
+        <dot:RouteLink RouteName="Admin_CategoryDetail" class="dotvvm-bp-button">
+            <bp:FAIcon Icon="Plus" /> New Category
+        </dot:RouteLink>
+    </div>
+
+    <bp:GridView DataSource="{value: Items}">
+        <bp:GridViewTextColumn ValueBinding="{value: Id}" HeaderText="Id" Width="50px" />
+
+        <bp:GridViewTemplateColumn HeaderText="Name">
+            <img src="{value: ImageUrl}" alt="{value: CategoryName}" class="grid-image" /> {{value: CategoryName}}
+        </bp:GridViewTemplateColumn>
+        
+        <bp:GridViewTextColumn ValueBinding="{value: Description}" HeaderText="Description" />
+
+        <bp:GridViewTemplateColumn CssClass="icon">
+            <dot:RouteLink RouteName="Admin_CategoryDetail" Param-Id="{value: Id}">
+                <bp:FAIcon Icon="Pencil" />
+            </dot:RouteLink>
+        </bp:GridViewTemplateColumn>
+
+        <bp:GridViewTemplateColumn CssClass="icon">
+            <dot:LinkButton Click="{command: _root.Delete(Id)}">
+                <PostBack.Handlers>
+                    <dot:ConfirmPostBackHandler Message="Do you really want to delete the category?" />
+                </PostBack.Handlers>
+
+                <bp:FAIcon Icon="Remove" />
+            </dot:LinkButton>
+        </bp:GridViewTemplateColumn>
+    </bp:GridView>
+
+    <bp:DataPager DataSet="{value: Items}" />
+
+</dot:Content>
+

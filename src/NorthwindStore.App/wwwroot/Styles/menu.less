@@ -1,0 +1,31 @@
+﻿menu {
+    margin: 0px;
+    padding: 0px;
+    clear: both;
+
+    li {
+        float: left;
+        list-style-type: none;
+        background-color: @accentColor;
+        margin: 0px;
+        padding: 10px 30px;
+
+        &:hover {
+            background-color: lighten(@accentColor, 10%);
+        }
+
+        &.active {
+            background-color: @accentColor2;
+
+            &:hover {
+                background-color: lighten(@accentColor2, 10%);
+            }
+        }
+
+        a {
+            display: block;
+            color: @inverseColor;
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+﻿@viewModel NorthwindStore.App.ViewModels.Admin.Base.ISaveCancelViewModel, NorthwindStore.App
+
+<div class="toolbar">
+    <bp:Button Click="{command: Save()}" ButtonTagName="button">
+        <bp:FAIcon Icon="Save" /> Save Changes
+    </bp:Button>
+    <bp:Button Click="{command: Cancel()}" ButtonTagName="button" Validation.Enabled="false">
+        <bp:FAIcon Icon="Undo" /> Cancel
+    </bp:Button>
+</div>

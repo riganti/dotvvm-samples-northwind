@@ -1,0 +1,63 @@
+﻿.form {
+    max-width: 800px;
+
+
+    .form-field {
+        padding: 10px 0px;
+        border-bottom: solid 1px #f8f8f8;
+
+        label {
+            width: 120px;
+            float: left;
+        }
+
+        > div {
+            width: calc(~"100% - 120px");
+            float: left;
+
+            .bp-text-box {
+                width: 100%;
+
+                &.short {
+                    width: 100px;
+                }
+            }
+
+            .dotvvm-bp-drop-down-list {
+                width: 300px;
+            }
+
+
+            textarea {
+                height: 80px;
+            }
+
+            .uploaded-image {
+                max-width: 200px;
+                max-height: 200px;
+            }
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+
+        &.has-error {
+            label {
+                color: @validationColor;
+            }
+
+            .bp-text-box {
+                border-color: @validationColor;
+            }
+        }
+    }
+
+    .form-button {
+        margin-top: 10px;
+        text-align: right;
+    }
+}

@@ -1,0 +1,85 @@
+﻿@viewModel NorthwindStore.App.ViewModels.Admin.ProductDetailViewModel, NorthwindStore.App
+@masterPage Views/Admin/admin.dotmaster
+
+<dot:Content ContentPlaceHolderID="AdminContent">
+
+    <cc:SaveCancelButtons />
+
+    <div class="form" DataContext="{value: CurrentItem}">
+
+        <div class="form-field" Visible="{value: !_root.IsNew}">
+            <label>ID</label>
+            <div>
+                {{value: Id}}
+            </div>
+        </div>
+
+        <%--<div class="form-field" Validator.Value="{value: ProductName}">
+            <label>Name</label>
+            <div>
+                <bp:TextBox Text="{value: ProductName}" />
+            </div>
+        </div>--%>
+
+        <cc:TextBoxFormField LabelText="Name" TextBinding="{value: ProductName}" />
+
+        <div class="form-field">
+            <label>Category</label>
+            <div>
+                <bp:DropDownList DataSource="{value: _root.Categories}" SelectedValue="{value: CategoryId}" ItemTextBinding="{value: CategoryName}" ItemValueBinding="{value: Id}" />
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label>Supplier</label>
+            <div>
+                <bp:DropDownList DataSource="{value: _root.Suppliers}" SelectedValue="{value: SupplierId}" ItemTextBinding="{value: CompanyName}" ItemValueBinding="{value: Id}" />
+            </div>
+        </div>
+
+        <div class="form-field" Validator.Value="{value: QuantityPerUnit}">
+            <label>Qty per Unit</label>
+            <div>
+                <bp:TextBox Text="{value: QuantityPerUnit}" class="short" />
+            </div>
+        </div>
+
+        <div class="form-field" Validator.Value="{value: UnitPrice}">
+            <label>Unit Price</label>
+            <div>
+                <bp:TextBox Text="{value: UnitPrice}" class="short" FormatString="n2" /> $
+            </div>
+        </div>
+
+        <div class="form-field" Validator.Value="{value: UnitsInStock}">
+            <label>Units in Stock</label>
+            <div>
+                <bp:TextBox Text="{value: UnitsInStock}" class="short" />
+            </div>
+        </div>
+
+        <div class="form-field" Validator.Value="{value: UnitsOnOrder}">
+            <label>Units on Order</label>
+            <div>
+                <bp:TextBox Text="{value: UnitsOnOrder}" class="short" />
+            </div>
+        </div>
+
+        <div class="form-field" Validator.Value="{value: ReorderLevel}">
+            <label>Reorder Level</label>
+            <div>
+                <bp:TextBox Text="{value: UnitsOnOrder}" class="short" />
+            </div>
+        </div>
+
+        <div class="form-field">
+            <label>Discontinued</label>
+            <div>
+                <bp:CheckBox Checked="{value: Discontinued}" />
+            </div>
+        </div>
+
+    </div>
+
+</dot:Content>
+

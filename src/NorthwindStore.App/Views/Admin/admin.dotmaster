@@ -1,0 +1,29 @@
+﻿@viewModel NorthwindStore.App.ViewModels.Admin.AdminViewModel, NorthwindStore.App
+@masterPage Views/layout.dotmaster
+
+<dot:Content ContentPlaceHolderID="MenuContent">
+
+    <menu>
+        <li class-active="{value: HighlightedMenuPath == "Regions"}">
+            <dot:RouteLink RouteName="Admin_RegionList" Text="Regions" />
+        </li>
+        <li class-active="{value: HighlightedMenuPath == "Categories"}">
+            <dot:RouteLink RouteName="Admin_CategoryList" Text="Categories" />
+        </li>
+        <li class-active="{value: HighlightedMenuPath == "Products"}">
+            <dot:RouteLink RouteName="Admin_ProductList" Text="Products" />
+        </li>
+    </menu>
+    
+</dot:Content>
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    
+    <h2>{{value: PageTitle}}</h2>
+
+    <bp:Alert Type="{value: AlertType}" Text="{value: AlertText}" />
+
+    <dot:ContentPlaceHolder ID="AdminContent" />
+
+</dot:Content>
+
