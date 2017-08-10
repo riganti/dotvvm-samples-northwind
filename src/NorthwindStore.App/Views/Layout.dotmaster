@@ -35,7 +35,7 @@
     </div>
 
     <dot:MiniProfilerWidget Position="Right" ShowTrivial="true" StartHidden="true" />
-    <dot:ApplicationInsightJavascript />
+    <dot:ApplicationInsightsJavascript />
 </body>
 </html>
 
