@@ -7,7 +7,10 @@ using Riganti.Utils.Infrastructure.Services.Facades;
 
 namespace NorthwindStore.BL.Facades.Admin.Base
 {
-    public abstract class AppCrudFacadeBase<TEntity, TKey, TListDTO, TDetailDTO> : CrudFacadeBase<TEntity, TKey, TListDTO, TDetailDTO>, IListFacade<TListDTO, TKey>, IDetailFacade<TDetailDTO, TKey> 
+    public abstract class AppCrudFacadeBase<TEntity, TKey, TListDTO, TDetailDTO> 
+        : CrudFacadeBase<TEntity, TKey, TListDTO, TDetailDTO>, 
+        IListFacade<TListDTO, TKey>, 
+        IDetailFacade<TDetailDTO, TKey> 
         where TDetailDTO : IEntity<TKey> 
         where TEntity : IEntity<TKey>
     {

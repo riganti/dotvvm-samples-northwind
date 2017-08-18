@@ -68,7 +68,7 @@
         <div class="form-field" Validator.Value="{value: ReorderLevel}">
             <label>Reorder Level</label>
             <div>
-                <bp:TextBox Text="{value: UnitsOnOrder}" class="short" />
+                <bp:TextBox Text="{value: ReorderLevel}" class="short" />
             </div>
         </div>
 

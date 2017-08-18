@@ -7,7 +7,8 @@
         <dot:RouteLink RouteName="Admin_ProductDetail" class="dotvvm-bp-button">
             <bp:FAIcon Icon="Plus" /> New Product
         </dot:RouteLink>
-        <dot:LinkButton Click="{staticCommand: OrderDialog.IsDisplayed = true}" class="dotvvm-bp-button" Visible="{value: OrderDialog.SelectedProductIds.Count > 0}">
+        <dot:LinkButton Click="{staticCommand: OrderDialog.IsDisplayed = true}" class="dotvvm-bp-button" 
+                        Visible="{value: OrderDialog.SelectedProductIds.Count > 0}">
             <bp:FAIcon Icon="List" /> Order Items
         </dot:LinkButton>
     </div>

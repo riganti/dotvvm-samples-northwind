@@ -6,7 +6,7 @@
     <div class="login-box">
 
         <bp:Alert Type="{value: AlertType}" Text="{value: AlertText}" />
-
+        
         <form class="form" DataContext="{value: Login}">
             
             <div class="form-field" Validator.Value="{value: UserName}">
