@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DotVVM.BusinessPack.Controls;
 using DotVVM.Framework.Hosting;
 using DotVVM.Framework.ViewModel;
+using Microsoft.AspNetCore.Authentication;
 using NorthwindStore.BL.DTO;
 using NorthwindStore.BL.Facades;
 
@@ -34,7 +35,7 @@ namespace NorthwindStore.App.ViewModels
                 AlertType = AlertType.Danger;
             }
 
-            await Context.GetAuthentication().SignInAsync("Cookie", identity);
+            await Context.GetAspNetCoreContext().SignInAsync("Cookie", identity);
             Context.RedirectToRoute("Admin_RegionList");
         }
     }

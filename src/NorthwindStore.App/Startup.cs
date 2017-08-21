@@ -42,6 +42,22 @@ namespace NorthwindStore.App
                 options.AddApplicationInsightsTracing();
             });
 
+            services
+                .AddAuthentication("Cookie")
+                .AddCookie("Cookie", options =>
+                {
+                    options.LoginPath = new PathString("/");
+                    options.Events = new CookieAuthenticationEvents
+                    {
+                        OnRedirectToReturnUrl = c => DotvvmAuthenticationHelper.ApplyRedirectResponse(c.HttpContext, c.RedirectUri),
+                        OnRedirectToAccessDenied = c => DotvvmAuthenticationHelper.ApplyStatusCodeResponse(c.HttpContext, 403),
+                        OnRedirectToLogin = c => DotvvmAuthenticationHelper.ApplyRedirectResponse(c.HttpContext, c.RedirectUri),
+                        OnRedirectToLogout = c => DotvvmAuthenticationHelper.ApplyRedirectResponse(c.HttpContext, c.RedirectUri)
+                    };
+                });
+
+            services.AddMemoryCache();
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             return WindsorRegistrationHelper.CreateServiceProvider(InitializeWindsor(), services);
         }
@@ -62,26 +78,13 @@ namespace NorthwindStore.App
         {
             loggerFactory.AddConsole();
 
-            app.UseMiniProfiler(new MiniProfilerOptions
+            app.UseMiniProfiler(options =>
             {
-                RouteBasePath = "~/profiler",
-                Storage = new MemoryCacheStorage(new MemoryCache(new MemoryCacheOptions()), TimeSpan.FromMinutes(60))
+                options.RouteBasePath = "~/profiler";
+                options.Storage = new MemoryCacheStorage(new MemoryCache(new MemoryCacheOptions()), TimeSpan.FromMinutes(60));
             });
 
-            app.UseCookieAuthentication(new CookieAuthenticationOptions
-            {
-                LoginPath = new PathString("/"),
-                AuthenticationScheme = "Cookie",
-                Events = new CookieAuthenticationEvents
-                {
-                    OnRedirectToReturnUrl = c => DotvvmAuthenticationHelper.ApplyRedirectResponse(c.HttpContext, c.RedirectUri),
-                    OnRedirectToAccessDenied = c => DotvvmAuthenticationHelper.ApplyStatusCodeResponse(c.HttpContext, 403),
-                    OnRedirectToLogin = c => DotvvmAuthenticationHelper.ApplyRedirectResponse(c.HttpContext, c.RedirectUri),
-                    OnRedirectToLogout = c => DotvvmAuthenticationHelper.ApplyRedirectResponse(c.HttpContext, c.RedirectUri)
-                },
-                AutomaticAuthenticate = true,
-                AutomaticChallenge = true
-            });
+            app.UseAuthentication();
 
             // use DotVVM
             var dotvvmConfiguration = app.UseDotVVM<DotvvmStartup>(env.ContentRootPath);

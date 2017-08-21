@@ -4,6 +4,7 @@ using Castle.Facilities.TypedFactory;
 using DotVVM.BusinessPack.Controls;
 using DotVVM.Framework.Hosting;
 using DotVVM.Framework.ViewModel;
+using Microsoft.AspNetCore.Authentication;
 using Remotion.Linq.Parsing;
 using Riganti.Utils.Infrastructure.Core;
 
@@ -29,7 +30,7 @@ namespace NorthwindStore.App.ViewModels
 
         public async Task SignOut()
         {
-            await Context.GetAuthentication().SignOutAsync("Cookie");
+            await Context.GetAspNetCoreContext().SignOutAsync("Cookie");
             Context.RedirectToRoute("Default");
         }
 
