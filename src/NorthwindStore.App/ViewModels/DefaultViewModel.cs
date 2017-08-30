@@ -35,7 +35,7 @@ namespace NorthwindStore.App.ViewModels
                 AlertType = AlertType.Danger;
             }
 
-            await Context.GetAspNetCoreContext().SignInAsync("Cookie", identity);
+            await Context.GetAuthentication().SignInAsync("Cookie", identity);
             Context.RedirectToRoute("Admin_RegionList");
         }
     }
