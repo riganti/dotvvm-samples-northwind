@@ -1,0 +1,21 @@
+﻿@viewModel NorthwindStore.App.ViewModels.Admin.SupplierDetailViewModel, NorthwindStore.App
+@masterPage Views/Admin/admin.dotmaster
+
+<dot:Content ContentPlaceHolderID="AdminContent">
+
+    <cc:SaveCancelButtons />
+
+    <div class="form" DataContext="{value: CurrentItem}">
+
+        <div class="form-field" Visible="{value: !_root.IsNew}">
+            <label>ID</label>
+            <div>
+                {{value: Id}}
+            </div>
+        </div>
+    </div>
+
+    <dd:DynamicEntity class="form" DataContext="{value: CurrentItem}" />
+
+</dot:Content>
+

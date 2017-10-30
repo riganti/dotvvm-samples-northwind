@@ -1,0 +1,8 @@
+﻿@viewModel System.Object, mscorlib
+@baseType NorthwindStore.App.Controls.NewItemButton, NorthwindStore.App
+@noWrapperTag 
+
+<dot:RouteLink RouteName="{resource: _control.RouteName}" class="dotvvm-bp-button">
+    <bp:FAIcon Icon="Plus" /> {{value: _control.Text}}
+</dot:RouteLink>
+

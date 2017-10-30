@@ -19,6 +19,7 @@ namespace NorthwindStore.App.ViewModels.Admin
             this.baseListsFacade = baseListsFacade;
         }
 
+
         public override string PageTitle => IsNew ? "New Product" : "Edit Product";
         public override string HighlightedMenuPath => "Products";
         public override string ListPageRouteName => "Admin_ProductList";

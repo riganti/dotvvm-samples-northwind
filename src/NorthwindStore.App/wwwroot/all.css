@@ -136,6 +136,20 @@ a.dotvvm-bp-button i {
 .dotvvm-bp-grid-view .bp-table .row-warning {
   background-color: lightsalmon;
 }
+.dotvvm-bp-grid-view .sort-desc:before {
+  content: "\f0d7";
+  font-family: FontAwesome;
+  float: left;
+  margin-right: 5px;
+  margin-top: 2px;
+}
+.dotvvm-bp-grid-view .sort-asc:before {
+  content: "\f0d8";
+  font-family: FontAwesome;
+  float: left;
+  margin-right: 5px;
+  margin-top: 2px;
+}
 .toolbar {
   margin-bottom: 20px;
 }

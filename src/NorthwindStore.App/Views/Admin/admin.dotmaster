@@ -13,6 +13,9 @@
         <li class-active="{value: HighlightedMenuPath == "Products"}">
             <dot:RouteLink RouteName="Admin_ProductList" Text="Products" />
         </li>
+        <li class-active="{value: HighlightedMenuPath == "Suppliers"}">
+            <dot:RouteLink RouteName="Admin_SupplierList" Text="Suppliers" />
+        </li>
     </menu>
     
 </dot:Content>

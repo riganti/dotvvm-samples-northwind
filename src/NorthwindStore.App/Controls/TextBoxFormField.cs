@@ -56,17 +56,17 @@ namespace NorthwindStore.App.Controls
             var textBinding = GetValueBinding(TextBindingProperty);
             
             // set my properties
-            Attributes["class"] = "form-field";
-            SetBinding(Validator.ValueProperty, textBinding);
+            this.Attributes["class"] = "form-field";
+            this.SetBinding(Validator.ValueProperty, textBinding);
 
             // create label
             var label = new HtmlGenericControl("label");
             label.InnerText = LabelText;
-            Children.Add(label);
+            this.Children.Add(label);
 
             // create div for TextBox
             var div = new HtmlGenericControl("div");
-            Children.Add(div);
+            this.Children.Add(div);
 
             // create TextBox
             var textBox = new DotVVM.BusinessPack.Controls.TextBox();

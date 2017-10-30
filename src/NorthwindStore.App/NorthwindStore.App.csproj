@@ -25,6 +25,7 @@
         <PackageReference Include="Castle.Windsor" Version="4.0.0" />
         <PackageReference Include="Castle.Windsor.MsDependencyInjection" Version="3.0.0" />
         <PackageReference Include="DotVVM.BusinessPack" Version="1.1.5-rc1" />
+        <PackageReference Include="DotVVM.DynamicData" Version="1.1.5.1" />
         <PackageReference Include="DotVVM.Tracing.ApplicationInsights.AspNetCore" Version="1.1.6" />
         <PackageReference Include="DotVVM.Tracing.MiniProfiler.AspNetCore" Version="1.1.6" />
         <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
@@ -45,5 +46,27 @@
     </ItemGroup>
     <ItemGroup>
       <WCFMetadata Include="Connected Services" />
+    </ItemGroup>
+    <ItemGroup>
+      <Compile Update="Resources\ErrorMessages.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ErrorMessages.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Resources\PropertyNames.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>PropertyNames.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\ErrorMessages.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>ErrorMessages.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\PropertyNames.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>PropertyNames.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
     </ItemGroup>
 </Project>

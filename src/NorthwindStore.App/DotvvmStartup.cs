@@ -4,6 +4,7 @@ using DotVVM.Framework.Routing;
 using NorthwindStore.App.Controls;
 using NorthwindStore.App.Filters;
 using NorthwindStore.App.Presenters;
+using DotVVM.Framework.Controls.DynamicData;
 
 namespace NorthwindStore.App
 {
@@ -13,6 +14,7 @@ namespace NorthwindStore.App
         public void Configure(DotvvmConfiguration config, string applicationPath)
         {
             config.AddBusinessPackConfiguration();
+            config.AddDynamicDataConfiguration();
 
             config.Runtime.GlobalFilters.Add(new ErrorHandlingFilter());
 
@@ -36,6 +38,7 @@ namespace NorthwindStore.App
         {
             config.Markup.AddMarkupControl("cc", "SaveCancelButtons", "Controls/SaveCancelButtons.dotcontrol");
             config.Markup.AddMarkupControl("cc", "ProductListOrderDialog", "Controls/ProductListOrderDialog.dotcontrol");
+            config.Markup.AddMarkupControl("cc", "NewItemButton", "Controls/NewItemButton.dotcontrol");
 
             config.Markup.AddCodeControls("cc", typeof(TextBoxFormField));
         }

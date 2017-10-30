@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Riganti.Utils.Infrastructure.Core;
+using DotVVM.Framework.Controls.DynamicData.Annotations;
 
 namespace NorthwindStore.BL.DTO
 {
     public class ProductDetailDTO : IEntity<int>
     {
+        [Display(AutoGenerateField = false)]
         public int Id { get; set; }
 
         [Required]

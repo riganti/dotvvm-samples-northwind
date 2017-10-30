@@ -21,7 +21,7 @@
             </div>
         </div>--%>
 
-        <cc:TextBoxFormField LabelText="Name" TextBinding="{value: ProductName}" />
+        <%--<cc:TextBoxFormField LabelText="Name" TextBinding="{value: ProductName}" />
 
         <div class="form-field">
             <label>Category</label>
@@ -77,9 +77,11 @@
             <div>
                 <bp:CheckBox Checked="{value: Discontinued}" />
             </div>
-        </div>
+        </div>--%>
 
     </div>
+
+    <dd:DynamicEntity class="form" DataContext="{value: CurrentItem}" />
 
 </dot:Content>
 

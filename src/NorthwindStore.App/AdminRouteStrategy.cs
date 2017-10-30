@@ -6,7 +6,8 @@ namespace NorthwindStore.App
 {
     public class AdminRouteStrategy : DefaultRouteStrategy
     {
-        public AdminRouteStrategy(DotvvmConfiguration config) : base(config, viewsFolder: "Views/Admin")
+        public AdminRouteStrategy(DotvvmConfiguration config) 
+            : base(config, viewsFolder: "Views/Admin")
         {
         }
 

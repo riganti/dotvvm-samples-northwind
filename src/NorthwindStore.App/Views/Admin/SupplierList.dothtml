@@ -1,0 +1,37 @@
+﻿@viewModel NorthwindStore.App.ViewModels.Admin.SupplierListViewModel, NorthwindStore.App
+@masterPage Views/Admin/admin.dotmaster
+
+<dot:Content ContentPlaceHolderID="AdminContent">
+
+    <div class="toolbar">
+        <cc:NewItemButton RouteName="Admin_SupplierDetail" 
+                          Text="New Supplier" />
+    </div>
+
+    <div class="dotvvm-bp-grid-view dotvvm-bp-default dotvvm-bp-control">
+        <dd:DynamicDataGridViewDecorator>
+            <dot:GridView DataSource="{value: Items}" class="bp-table">
+                
+                <dot:GridViewTemplateColumn CssClass="icon">
+                    <dot:RouteLink RouteName="Admin_SupplierDetail" Param-Id="{value: Id}">
+                        <bp:FAIcon Icon="Pencil" />
+                    </dot:RouteLink>
+                </dot:GridViewTemplateColumn>
+
+                <dot:GridViewTemplateColumn CssClass="icon">
+                    <dot:LinkButton Click="{command: _root.Delete(Id)}">
+                        <PostBack.Handlers>
+                            <dot:ConfirmPostBackHandler Message="Do you really want to delete the supplier?" />
+                        </PostBack.Handlers>
+
+                        <bp:FAIcon Icon="Remove" />
+                    </dot:LinkButton>
+                </dot:GridViewTemplateColumn>
+            </dot:GridView>
+        </dd:DynamicDataGridViewDecorator>
+    </div>
+
+    <bp:DataPager DataSet="{value: Items}" />
+
+</dot:Content>
+

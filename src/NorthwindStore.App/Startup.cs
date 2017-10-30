@@ -19,6 +19,11 @@ using Microsoft.Extensions.Logging;
 using NorthwindStore.App.Installers;
 using StackExchange.Profiling;
 using StackExchange.Profiling.Storage;
+using DotVVM.Framework.Controls.DynamicData;
+using DotVVM.Framework.Controls.DynamicData.Configuration;
+using NorthwindStore.App.Controls;
+using DotVVM.Framework.Controls.DynamicData.PropertyHandlers.FormEditors;
+using NorthwindStore.App.Resources;
 
 namespace NorthwindStore.App
 {
@@ -40,6 +45,9 @@ namespace NorthwindStore.App
                 options.AddDefaultTempStorages("Temp");
                 options.AddMiniProfilerEventTracing();
                 options.AddApplicationInsightsTracing();
+
+                var dynamicDataConfig = new AppDynamicDataConfiguration();
+                options.AddDynamicData(dynamicDataConfig);
             });
 
             services
