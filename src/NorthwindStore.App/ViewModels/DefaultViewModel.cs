@@ -33,6 +33,7 @@ namespace NorthwindStore.App.ViewModels
             {
                 AlertText = "The credentials are not valid!";
                 AlertType = AlertType.Danger;
+                return;
             }
 
             await Context.GetAuthentication().SignInAsync("Cookie", identity);

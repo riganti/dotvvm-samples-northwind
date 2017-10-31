@@ -12,6 +12,7 @@ namespace NorthwindStore.BL.DTO
         [Required]
         public string ProductName { get; set; }
 
+        //[ComboBoxSettings(DataSourceBinding = "_root.AllSuppliers")]
         public int? SupplierId { get; set; }
 
         public int? CategoryId { get; set; }
