@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM.Core" Version="1.1.6" />
+    <PackageReference Include="DotVVM.Core" Version="1.1.7" />
     <PackageReference Include="DotVVM.DynamicData.Annotations" Version="1.1.5.1" />
     <PackageReference Include="Riganti.Utils.Infrastructure.AutoMapper" Version="2.0.10" />
     <PackageReference Include="Riganti.Utils.Infrastructure.DotVVM" Version="2.0.10" />
