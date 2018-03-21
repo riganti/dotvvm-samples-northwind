@@ -15,7 +15,7 @@ You will have change the connection string in the application too (`src/Northwin
 
 1. Install the [DotVVM for Visual Studio](https://marketplace.visualstudio.com/items?itemName=TomasHerceg.DotVVMforVisualStudio-17892) extension if you don't have it.
 
-1. Join the [DotVVM Business Pack Beta Program](https://www.dotvvm.com/get-trial/business-pack) to get the beta version.
+1. Sign up for an account on DotVVM.com and request access to [DotVVM Business Pack Beta Program](https://www.dotvvm.com/login) to get the beta version.
 
 1. Make sure to set up the [DotVVM Private Nuget Feed](https://www.dotvvm.com/docs/tutorials/commercial-dotvvm-private-nuget-feed/latest).
 
