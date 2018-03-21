@@ -21,6 +21,12 @@ You will have change the connection string in the application too (`src/Northwin
 
 1. Open the solution (`src/NorthwindStore.sln`) in Visual Studio 2017. 
 
+1. Run the `NorthwindStore.App` project. To sign into the app, use the following credentials:
+
+Username: `admin`
+
+Password: `admin`
+
 ## What's inside
 
 The application tries to explain how DotVVM should be used in larger applications.
