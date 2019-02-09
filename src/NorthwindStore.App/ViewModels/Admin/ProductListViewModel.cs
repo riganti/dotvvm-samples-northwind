@@ -46,7 +46,7 @@ namespace NorthwindStore.App.ViewModels.Admin
         {
             OrderDialog.RefreshRequested += () =>
             {
-                Items.RequestRefresh(true);
+                Items.RequestRefresh();
             };
 
             return base.Init();

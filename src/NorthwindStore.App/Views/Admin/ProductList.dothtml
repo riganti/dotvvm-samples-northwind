@@ -5,11 +5,11 @@
 
     <div class="toolbar">
         <dot:RouteLink RouteName="Admin_ProductDetail" class="dotvvm-bp-button">
-            <bp:FAIcon Icon="Plus" /> New Product
+            <bp:FAIcon Icon="PlusSolid" /> New Product
         </dot:RouteLink>
         <dot:LinkButton Click="{staticCommand: OrderDialog.IsDisplayed = true}" class="dotvvm-bp-button" 
                         Visible="{value: OrderDialog.SelectedProductIds.Count > 0}">
-            <bp:FAIcon Icon="List" /> Order Items
+            <bp:FAIcon Icon="ListSolid" /> Order Items
         </dot:LinkButton>
     </div>
 
@@ -56,7 +56,7 @@
 
         <bp:GridViewTemplateColumn CssClass="icon">
             <dot:RouteLink RouteName="Admin_ProductDetail" Param-Id="{value: Id}">
-                <bp:FAIcon Icon="Pencil" />
+                <bp:FAIcon Icon="PencilAltSolid" />
             </dot:RouteLink>
         </bp:GridViewTemplateColumn>
 
@@ -66,7 +66,7 @@
                     <dot:ConfirmPostBackHandler Message="Do you really want to delete the product?" />
                 </PostBack.Handlers>
 
-                <bp:FAIcon Icon="Remove" />
+                <bp:FAIcon Icon="TrashSolid" />
             </dot:LinkButton>
         </bp:GridViewTemplateColumn>
     </bp:GridView>

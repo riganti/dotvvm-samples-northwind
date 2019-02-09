@@ -168,10 +168,10 @@ a.dotvvm-bp-button i {
   width: calc(100% - 120px);
   float: left;
 }
-.form .form-field > div .bp-text-box {
+.form .form-field > div .dotvvm-bp-text-box {
   width: 100%;
 }
-.form .form-field > div .bp-text-box.short {
+.form .form-field > div .dotvvm-bp-text-box.short {
   width: 100px;
 }
 .form .form-field > div .dotvvm-bp-drop-down-list {

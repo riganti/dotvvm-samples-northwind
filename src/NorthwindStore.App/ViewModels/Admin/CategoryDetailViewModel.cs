@@ -48,10 +48,9 @@ namespace NorthwindStore.App.ViewModels.Admin
 
         protected override void OnItemSaved()
         {
-            // TODO: this is not very efficient because we need two database queries
-            if (PictureData.UploadedFiles.Any())
+            if (PictureData.Files.Any())
             {
-                var file = PictureData.UploadedFiles.First();
+                var file = PictureData.Files.First();
                 using (var stream = storage.GetFile(file.FileId))
                 {
                     facade.SaveImage(CurrentItemId, stream);

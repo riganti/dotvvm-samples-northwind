@@ -14,7 +14,7 @@
                 
                 <dot:GridViewTemplateColumn CssClass="icon">
                     <dot:RouteLink RouteName="Admin_SupplierDetail" Param-Id="{value: Id}">
-                        <bp:FAIcon Icon="Pencil" />
+                        <bp:FAIcon Icon="PencilAltSolid" />
                     </dot:RouteLink>
                 </dot:GridViewTemplateColumn>
 
@@ -24,7 +24,7 @@
                             <dot:ConfirmPostBackHandler Message="Do you really want to delete the supplier?" />
                         </PostBack.Handlers>
 
-                        <bp:FAIcon Icon="Remove" />
+                        <bp:FAIcon Icon="TrashSolid" />
                     </dot:LinkButton>
                 </dot:GridViewTemplateColumn>
             </dot:GridView>

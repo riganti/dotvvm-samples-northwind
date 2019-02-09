@@ -20,7 +20,7 @@ namespace NorthwindStore.App.ViewModels.Admin
         {
             this.pageFacade = pageFacade;
 
-            Regions = new BpGridViewDataSet<RegionDTO>()
+            Regions = new BusinessPackDataSet<RegionDTO>()
             {
                 PagingOptions =
                 {

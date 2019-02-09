@@ -28,7 +28,7 @@ namespace NorthwindStore.App.ViewModels.Admin.Base
 
         public override Task Init()
         {
-            Items = new BpGridViewDataSet<TDTO>()
+            Items = new BusinessPackDataSet<TDTO>()
             {
                 PagingOptions =
                 {

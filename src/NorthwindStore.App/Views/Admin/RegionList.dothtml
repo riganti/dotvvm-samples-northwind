@@ -5,7 +5,7 @@
 
     <div class="toolbar">
         <dot:RouteLink RouteName="Admin_RegionDetail" class="dotvvm-bp-button">
-            <bp:FAIcon Icon="Plus" /> New Region
+            <bp:FAIcon Icon="PlusSolid" /> New Region
         </dot:RouteLink> 
     </div>
 
@@ -15,7 +15,7 @@
 
         <bp:GridViewTemplateColumn CssClass="icon">
             <dot:RouteLink RouteName="Admin_RegionDetail" Param-Id="{value: Id}">
-                <bp:FAIcon Icon="Pencil" />
+                <bp:FAIcon Icon="PencilAltSolid" />
             </dot:RouteLink>
         </bp:GridViewTemplateColumn>
 
@@ -25,7 +25,7 @@
                     <dot:ConfirmPostBackHandler Message="Do you really want to delete the region?" />
                 </PostBack.Handlers>
 
-                <bp:FAIcon Icon="Remove" />
+                <bp:FAIcon Icon="TrashSolid" />
             </dot:LinkButton>
         </bp:GridViewTemplateColumn>
     </bp:GridView>

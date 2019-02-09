@@ -22,20 +22,21 @@
         <None Remove="dotvvm_serialized_config.json.tmp" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Castle.Windsor" Version="4.0.0" />
-        <PackageReference Include="Castle.Windsor.MsDependencyInjection" Version="3.0.0" />
-        <PackageReference Include="DotVVM.BusinessPack" Version="1.1.5-rc1" />
-        <PackageReference Include="DotVVM.DynamicData" Version="1.1.5.1" />
-        <PackageReference Include="DotVVM.Tracing.ApplicationInsights.AspNetCore" Version="1.1.7" />
-        <PackageReference Include="DotVVM.Tracing.MiniProfiler.AspNetCore" Version="1.1.7" />
-        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
-        <PackageReference Include="Microsoft.AspNetCore" Version="2.0.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.0.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.0.0" />
-        <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.0" />
-        <PackageReference Include="DotVVM.AspNetCore" Version="1.1.7" />
-        <PackageReference Include="Riganti.Utils.Infrastructure.AspNetCore" Version="2.0.10" />
-        <PackageReference Include="Riganti.Utils.Infrastructure.DotVVM" Version="2.0.10" />
+        <PackageReference Include="Castle.Windsor" Version="4.1.1" />
+        <PackageReference Include="Castle.Windsor.MsDependencyInjection" Version="3.3.1" />
+        <PackageReference Include="DotVVM.BusinessPack" Version="2.1.0-preview09-final" />
+        <PackageReference Include="DotVVM.Diagnostics.StatusPage" Version="2.1.0" />
+        <PackageReference Include="DotVVM.DynamicData" Version="2.1.0" />
+        <PackageReference Include="DotVVM.Tracing.ApplicationInsights.AspNetCore" Version="2.1.0-preview01-36971" />
+        <PackageReference Include="DotVVM.Tracing.MiniProfiler.AspNetCore" Version="2.1.0-preview01-36971" />
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.1" />
+        <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+        <PackageReference Include="DotVVM.AspNetCore" Version="2.1.0" />
+        <PackageReference Include="Riganti.Utils.Infrastructure.AspNetCore" Version="2.2.4" />
+        <PackageReference Include="Riganti.Utils.Infrastructure.DotVVM" Version="2.2.4" />
     </ItemGroup>
     <ItemGroup>
         <DotNetCliToolReference Include="DotVVM.Compiler.Light" Version="1.1.5-beta-02" />
