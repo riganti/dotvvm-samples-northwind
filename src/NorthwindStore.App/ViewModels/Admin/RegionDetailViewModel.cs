@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DotVVM.Framework.ViewModel;
+using DotVVM.Framework.ViewModel.Validation;
 using NorthwindStore.BL.DTO;
+using NorthwindStore.BL.Exceptions;
 using NorthwindStore.BL.Facades.Admin;
 
 namespace NorthwindStore.App.ViewModels.Admin
@@ -51,7 +53,16 @@ namespace NorthwindStore.App.ViewModels.Admin
 
         public void Save()
         {
-            pageFacade.Save(CurrentItem);
+            try
+            {
+                pageFacade.Save(CurrentItem);
+            }
+            catch (RegionAlreadyExistsException ex)
+            {
+                Context.ModelState.Errors.Add(new ViewModelValidationError() { PropertyPath = nameof(CurrentItem.RegionDescription), ErrorMessage = ex.Message });
+                Context.FailOnInvalidModelState();
+            }
+
             Context.RedirectToRoute("Admin_RegionList");
         }
 
