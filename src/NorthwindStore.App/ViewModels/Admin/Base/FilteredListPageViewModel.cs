@@ -22,7 +22,7 @@ namespace NorthwindStore.App.ViewModels.Admin.Base
         [Bind(Direction.None)]
         public abstract ISortingOptions DefaultSortOptions { get; }
 
-        public GridViewDataSet<TDTO> Items { get; set; }
+        public BusinessPackDataSet<TDTO> Items { get; set; }
 
         public TFilterDTO Filter { get; set; } = new TFilterDTO();
 

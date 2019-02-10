@@ -2,8 +2,6 @@
 using DotVVM.BusinessPack.Controls;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.ViewModel;
-using NorthwindStore.BL.DTO;
-using NorthwindStore.BL.Facades.Admin;
 using NorthwindStore.BL.Facades.Admin.Base;
 
 namespace NorthwindStore.App.ViewModels.Admin.Base
@@ -22,7 +20,7 @@ namespace NorthwindStore.App.ViewModels.Admin.Base
         [Bind(Direction.None)]
         public abstract ISortingOptions DefaultSortOptions { get; }
 
-        public GridViewDataSet<TDTO> Items { get; set; }
+        public BusinessPackDataSet<TDTO> Items { get; set; }
 
 
         public override Task Init()

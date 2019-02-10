@@ -37,7 +37,7 @@ namespace NorthwindStore.App.ViewModels.Admin
 
         public override string HighlightedMenuPath => "Regions";
 
-        public GridViewDataSet<RegionDTO> Regions { get; set; }
+        public BusinessPackDataSet<RegionDTO> Regions { get; set; }
 
         public override Task PreRender()
         {
