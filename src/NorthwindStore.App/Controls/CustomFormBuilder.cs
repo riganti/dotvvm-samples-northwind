@@ -1,13 +1,11 @@
-﻿using DotVVM.Framework.Controls.DynamicData.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DotVVM.Framework.Controls;
+﻿using DotVVM.Framework.Controls;
 using DotVVM.Framework.Controls.DynamicData;
+using DotVVM.Framework.Controls.DynamicData.Builders;
 using DotVVM.Framework.Controls.DynamicData.Metadata;
-using System.ComponentModel.DataAnnotations;
 using DotVVM.Framework.Controls.DynamicData.PropertyHandlers.FormEditors;
+using Microsoft.Extensions.DependencyInjection;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace NorthwindStore.App.Controls
 {
@@ -19,7 +17,7 @@ namespace NorthwindStore.App.Controls
 
         public override void BuildForm(DotvvmControl hostControl, DynamicDataContext dynamicDataContext)
         {
-            var entityPropertyListProvider = dynamicDataContext.RequestContext.Configuration.ServiceLocator.GetService<IEntityPropertyListProvider>();
+            var entityPropertyListProvider = dynamicDataContext.RequestContext.Configuration.ServiceProvider.GetService<IEntityPropertyListProvider>();
 
             // create the rows
             var properties = GetPropertiesToDisplay(dynamicDataContext, entityPropertyListProvider);

@@ -1,14 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Castle.Facilities.TypedFactory;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
 using Castle.Windsor.MsDependencyInjection;
 using DotVVM.Framework.Hosting;
-using DotVVM.Tracing.ApplicationInsights.AspNetCore;
-using DotVVM.Tracing.MiniProfiler.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -17,13 +11,8 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NorthwindStore.App.Installers;
-using StackExchange.Profiling;
 using StackExchange.Profiling.Storage;
-using DotVVM.Framework.Controls.DynamicData;
-using DotVVM.Framework.Controls.DynamicData.Configuration;
-using NorthwindStore.App.Controls;
-using DotVVM.Framework.Controls.DynamicData.PropertyHandlers.FormEditors;
-using NorthwindStore.App.Resources;
+using System;
 
 namespace NorthwindStore.App
 {
@@ -31,24 +20,28 @@ namespace NorthwindStore.App
     {
         private static WindsorContainer container;
 
-
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            services.AddLogging(loggingBuilder =>
+            {
+                loggingBuilder.AddConsole();
+            });
+
             services.AddDataProtection();
             services.AddAuthorization();
             services.AddWebEncoders();
 
-            services.AddDotVVM(options =>
+            services.AddMiniProfiler(options =>
             {
-                options.AddDefaultTempStorages("Temp");
-                options.AddMiniProfilerEventTracing();
-                options.AddApplicationInsightsTracing();
-
-                var dynamicDataConfig = new AppDynamicDataConfiguration();
-                options.AddDynamicData(dynamicDataConfig);
+                options.RouteBasePath = "/profiler";
+                options.Storage = new MemoryCacheStorage(new MemoryCache(new MemoryCacheOptions()), TimeSpan.FromMinutes(60));
             });
+
+            services.AddApplicationInsightsTelemetry();
+
+            services.AddDotVVM<DotvvmStartup>();
 
             services
                 .AddAuthentication("Cookie")
@@ -82,15 +75,9 @@ namespace NorthwindStore.App
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            loggerFactory.AddConsole();
-
-            app.UseMiniProfiler(options =>
-            {
-                options.RouteBasePath = "~/profiler";
-                options.Storage = new MemoryCacheStorage(new MemoryCache(new MemoryCacheOptions()), TimeSpan.FromMinutes(60));
-            });
+            app.UseMiniProfiler();
 
             app.UseAuthentication();
 

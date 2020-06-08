@@ -8,7 +8,7 @@ using NorthwindStore.BL.Facades.Admin.Base;
 
 namespace NorthwindStore.App.ViewModels.Admin.Base
 {
-    public abstract class ListPageViewModel<TDTO, TKey> : AdminViewModel where TDTO : new()
+    public abstract class ListPageViewModel<TDTO, TKey> : AdminViewModel where TDTO : class, new()
     {
         [Bind(Direction.None)]
         public IListFacade<TDTO, TKey> Facade { get; }
@@ -22,12 +22,12 @@ namespace NorthwindStore.App.ViewModels.Admin.Base
         [Bind(Direction.None)]
         public abstract ISortingOptions DefaultSortOptions { get; }
 
-        public GridViewDataSet<TDTO> Items { get; set; }
+        public BusinessPackDataSet<TDTO> Items { get; set; }
 
 
         public override Task Init()
         {
-            Items = new BpGridViewDataSet<TDTO>()
+            Items = new BusinessPackDataSet<TDTO>()
             {
                 PagingOptions =
                 {

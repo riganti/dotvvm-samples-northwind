@@ -1,19 +1,18 @@
-using DotVVM.Framework;
 using DotVVM.Framework.Configuration;
+using DotVVM.Framework.Controls.DynamicData;
 using DotVVM.Framework.Routing;
+using Microsoft.Extensions.DependencyInjection;
 using NorthwindStore.App.Controls;
 using NorthwindStore.App.Filters;
 using NorthwindStore.App.Presenters;
-using DotVVM.Framework.Controls.DynamicData;
 
 namespace NorthwindStore.App
 {
-    public class DotvvmStartup : IDotvvmStartup
+    public class DotvvmStartup : IDotvvmStartup, IDotvvmServiceConfigurator
     {
         // For more information about this class, visit https://dotvvm.com/docs/tutorials/basics-project-structure
         public void Configure(DotvvmConfiguration config, string applicationPath)
         {
-            config.AddBusinessPackConfiguration();
             config.AddDynamicDataConfiguration();
 
             config.Runtime.GlobalFilters.Add(new ErrorHandlingFilter());
@@ -28,7 +27,7 @@ namespace NorthwindStore.App
             config.RouteTable.Add("Default", "", "Views/default.dothtml");
             
             // category image presenter
-            config.RouteTable.Add("CategoryImage", "image/category/{Id}", null, null, Startup.Resolve<CategoryImagePresenter>);
+            config.RouteTable.Add("CategoryImage", "image/category/{Id}", serviceProvider => Startup.Resolve<CategoryImagePresenter>());
 
             // auto-discovery strategy for admin section
             config.RouteTable.AutoDiscoverRoutes(new AdminRouteStrategy(config));    
@@ -46,6 +45,17 @@ namespace NorthwindStore.App
         private void ConfigureResources(DotvvmConfiguration config, string applicationPath)
         {
             // register custom resources and adjust paths to the built-in resources
+        }
+
+        public void ConfigureServices(IDotvvmServiceCollection options)
+        {
+            options.AddDefaultTempStorages("temp");
+            options.AddBusinessPack();
+            options.AddMiniProfilerEventTracing();
+            options.AddApplicationInsightsTracing();
+
+            var dynamicDataConfig = new AppDynamicDataConfiguration();
+            options.AddDynamicData(dynamicDataConfig);
         }
     }
 }

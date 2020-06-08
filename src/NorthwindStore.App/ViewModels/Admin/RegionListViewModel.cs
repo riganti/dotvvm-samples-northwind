@@ -20,7 +20,7 @@ namespace NorthwindStore.App.ViewModels.Admin
         {
             this.pageFacade = pageFacade;
 
-            Regions = new BpGridViewDataSet<RegionDTO>()
+            Regions = new BusinessPackDataSet<RegionDTO>()
             {
                 PagingOptions =
                 {
@@ -37,7 +37,7 @@ namespace NorthwindStore.App.ViewModels.Admin
 
         public override string HighlightedMenuPath => "Regions";
 
-        public GridViewDataSet<RegionDTO> Regions { get; set; }
+        public BusinessPackDataSet<RegionDTO> Regions { get; set; }
 
         public override Task PreRender()
         {

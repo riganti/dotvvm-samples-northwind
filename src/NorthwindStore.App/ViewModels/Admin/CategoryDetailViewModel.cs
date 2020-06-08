@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using DotVVM.BusinessPack.Controls;
-using DotVVM.Framework.Controls;
 using DotVVM.Framework.Storage;
-using DotVVM.Framework.ViewModel;
 using NorthwindStore.App.ViewModels.Admin.Base;
 using NorthwindStore.BL.DTO;
 using NorthwindStore.BL.Facades.Admin;
-using NorthwindStore.BL.Facades.Admin.Base;
+using System.Linq;
 
 namespace NorthwindStore.App.ViewModels.Admin
 {
@@ -49,9 +43,9 @@ namespace NorthwindStore.App.ViewModels.Admin
         protected override void OnItemSaved()
         {
             // TODO: this is not very efficient because we need two database queries
-            if (PictureData.UploadedFiles.Any())
+            if (PictureData.Files.Any())
             {
-                var file = PictureData.UploadedFiles.First();
+                var file = PictureData.Files.First();
                 using (var stream = storage.GetFile(file.FileId))
                 {
                     facade.SaveImage(CurrentItemId, stream);

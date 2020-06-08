@@ -53,6 +53,9 @@ body {
   content: '\25A0';
   margin-right: 5px;
 }
+.content-container .dotvvm-bp-data-pager {
+  margin: 10px 0;
+}
 menu {
   margin: 0px;
   padding: 0px;
@@ -117,22 +120,28 @@ a.dotvvm-bp-button i {
 .dotvvm-bp-grid-view {
   width: 100%;
 }
+.dotvvm-bp-grid-view .dotvvm-bp-primitive_table,
 .dotvvm-bp-grid-view .bp-table {
   width: 100%;
 }
+.dotvvm-bp-grid-view .dotvvm-bp-primitive_table td,
 .dotvvm-bp-grid-view .bp-table td,
+.dotvvm-bp-grid-view .dotvvm-bp-primitive_table th,
 .dotvvm-bp-grid-view .bp-table th {
   text-align: left;
   padding: 3px 5px;
 }
+.dotvvm-bp-grid-view .dotvvm-bp-primitive_table .icon,
 .dotvvm-bp-grid-view .bp-table .icon {
   width: 30px;
   text-align: center;
 }
+.dotvvm-bp-grid-view .dotvvm-bp-primitive_table .grid-image,
 .dotvvm-bp-grid-view .bp-table .grid-image {
   max-width: 80px;
   max-height: 80px;
 }
+.dotvvm-bp-grid-view .dotvvm-bp-primitive_table .row-warning,
 .dotvvm-bp-grid-view .bp-table .row-warning {
   background-color: lightsalmon;
 }
