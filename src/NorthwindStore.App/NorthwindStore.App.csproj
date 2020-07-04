@@ -24,7 +24,7 @@
     <ItemGroup>
         <PackageReference Include="Castle.Windsor" Version="4.1.1" />
         <PackageReference Include="Castle.Windsor.MsDependencyInjection" Version="3.3.1" />
-        <PackageReference Include="DotVVM.BusinessPack" Version="2.4.0.4" />
+        <PackageReference Include="DotVVM.BusinessPack" Version="2.4.0.4-trial" />
         <PackageReference Include="DotVVM.Diagnostics.StatusPage" Version="2.4.0" />
         <PackageReference Include="DotVVM.DynamicData" Version="2.4.0" />
         <PackageReference Include="DotVVM.Tracing.ApplicationInsights.AspNetCore" Version="2.4.0" />
