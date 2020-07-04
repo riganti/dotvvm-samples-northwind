@@ -6,7 +6,8 @@ using NorthwindStore.BL.Facades.Admin.Base;
 
 namespace NorthwindStore.App.ViewModels.Admin.Base
 {
-    public abstract class ListPageViewModel<TDTO, TKey> : AdminViewModel where TDTO : new()
+    public abstract class ListPageViewModel<TDTO, TKey> : AdminViewModel 
+        where TDTO : class, new()
     {
         [Bind(Direction.None)]
         public IListFacade<TDTO, TKey> Facade { get; }

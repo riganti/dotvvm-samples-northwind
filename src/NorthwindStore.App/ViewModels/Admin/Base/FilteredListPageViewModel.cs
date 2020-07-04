@@ -7,7 +7,7 @@ using NorthwindStore.BL.Facades.Admin.Base;
 namespace NorthwindStore.App.ViewModels.Admin.Base
 {
     public abstract class FilteredListPageViewModel<TDTO, TKey, TFilterDTO> : AdminViewModel 
-        where TDTO : new() 
+        where TDTO : class, new() 
         where TFilterDTO : new()
     {
         [Bind(Direction.None)]

@@ -5,12 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM.Core" Version="2.1.0" />
-    <PackageReference Include="DotVVM.DynamicData.Annotations" Version="2.1.0" />
-    <PackageReference Include="Riganti.Utils.Infrastructure.AutoMapper" Version="2.2.4" />
-    <PackageReference Include="Riganti.Utils.Infrastructure.DotVVM" Version="2.2.4" />
-    <PackageReference Include="Riganti.Utils.Infrastructure.EntityFrameworkCore" Version="2.2.4" />
-    <PackageReference Include="Riganti.Utils.Infrastructure.Services" Version="2.2.4" />
+    <PackageReference Include="DotVVM.Core" Version="2.4.0.1" />
+    <PackageReference Include="DotVVM.DynamicData.Annotations" Version="2.4.0" />
+    <PackageReference Include="Riganti.Utils.Infrastructure.AutoMapper" Version="2.3.0" />
+    <PackageReference Include="Riganti.Utils.Infrastructure.DotVVM" Version="2.3.0" />
+    <PackageReference Include="Riganti.Utils.Infrastructure.EntityFrameworkCore" Version="2.3.0" />
+    <PackageReference Include="Riganti.Utils.Infrastructure.Services" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>
