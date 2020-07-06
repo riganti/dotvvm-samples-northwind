@@ -8,6 +8,7 @@ using DotVVM.Framework.Controls.DynamicData;
 using DotVVM.Framework.Controls.DynamicData.Metadata;
 using System.ComponentModel.DataAnnotations;
 using DotVVM.Framework.Controls.DynamicData.PropertyHandlers.FormEditors;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace NorthwindStore.App.Controls
 {
@@ -19,7 +20,7 @@ namespace NorthwindStore.App.Controls
 
         public override void BuildForm(DotvvmControl hostControl, DynamicDataContext dynamicDataContext)
         {
-            var entityPropertyListProvider = dynamicDataContext.RequestContext.Configuration.ServiceLocator.GetService<IEntityPropertyListProvider>();
+            var entityPropertyListProvider = dynamicDataContext.RequestContext.Services.GetRequiredService<IEntityPropertyListProvider>();
 
             // create the rows
             var properties = GetPropertiesToDisplay(dynamicDataContext, entityPropertyListProvider);

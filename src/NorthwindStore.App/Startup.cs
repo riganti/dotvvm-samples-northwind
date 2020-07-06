@@ -7,8 +7,6 @@ using Castle.Windsor;
 using Castle.Windsor.Installer;
 using Castle.Windsor.MsDependencyInjection;
 using DotVVM.Framework.Hosting;
-using DotVVM.Tracing.ApplicationInsights.AspNetCore;
-using DotVVM.Tracing.MiniProfiler.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,11 +17,6 @@ using Microsoft.Extensions.Logging;
 using NorthwindStore.App.Installers;
 using StackExchange.Profiling;
 using StackExchange.Profiling.Storage;
-using DotVVM.Framework.Controls.DynamicData;
-using DotVVM.Framework.Controls.DynamicData.Configuration;
-using NorthwindStore.App.Controls;
-using DotVVM.Framework.Controls.DynamicData.PropertyHandlers.FormEditors;
-using NorthwindStore.App.Resources;
 
 namespace NorthwindStore.App
 {
@@ -40,15 +33,7 @@ namespace NorthwindStore.App
             services.AddAuthorization();
             services.AddWebEncoders();
 
-            services.AddDotVVM(options =>
-            {
-                options.AddDefaultTempStorages("Temp");
-                options.AddMiniProfilerEventTracing();
-                options.AddApplicationInsightsTracing();
-
-                var dynamicDataConfig = new AppDynamicDataConfiguration();
-                options.AddDynamicData(dynamicDataConfig);
-            });
+            services.AddDotVVM<DotvvmStartup>();
 
             services
                 .AddAuthentication("Cookie")
@@ -67,6 +52,13 @@ namespace NorthwindStore.App
             services.AddMemoryCache();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.Configure<MiniProfilerOptions>(options =>
+            {
+                options.RouteBasePath = "/profiler";
+                options.Storage = new MemoryCacheStorage(new MemoryCache(new MemoryCacheOptions()), TimeSpan.FromMinutes(60));
+            });
+
             return WindsorRegistrationHelper.CreateServiceProvider(InitializeWindsor(), services);
         }
 
@@ -84,15 +76,9 @@ namespace NorthwindStore.App
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole();
-
-            app.UseMiniProfiler(options =>
-            {
-                options.RouteBasePath = "~/profiler";
-                options.Storage = new MemoryCacheStorage(new MemoryCache(new MemoryCacheOptions()), TimeSpan.FromMinutes(60));
-            });
-
             app.UseAuthentication();
+
+            app.UseMiniProfiler();
 
             // use DotVVM
             var dotvvmConfiguration = app.UseDotVVM<DotvvmStartup>(env.ContentRootPath);

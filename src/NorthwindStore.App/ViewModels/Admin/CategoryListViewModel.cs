@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DotVVM.Framework.Controls;
-using DotVVM.Framework.ViewModel;
 using NorthwindStore.App.ViewModels.Admin.Base;
 using NorthwindStore.BL.DTO;
 using NorthwindStore.BL.Facades.Admin;
-using NorthwindStore.BL.Facades.Admin.Base;
 
 namespace NorthwindStore.App.ViewModels.Admin
 {

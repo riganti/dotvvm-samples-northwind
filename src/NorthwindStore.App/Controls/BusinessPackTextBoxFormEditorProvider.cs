@@ -32,7 +32,6 @@ namespace NorthwindStore.App.Controls
                 textBox.Attributes["class"] = cssClass;
             }
 
-            textBox.ValueType = TextBoxHelper.GetValueType(property.PropertyInfo);
             textBox.FormatString = property.FormatString;
             textBox.SetBinding(TextBox.TextProperty, context.CreateValueBinding(property.PropertyInfo.Name));
 

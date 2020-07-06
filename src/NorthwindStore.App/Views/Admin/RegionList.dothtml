@@ -5,27 +5,27 @@
 
     <div class="toolbar">
         <dot:RouteLink RouteName="Admin_RegionDetail" class="dotvvm-bp-button">
-            <bp:FAIcon Icon="Plus" /> New Region
+            <bp:FAIcon Icon="PlusSolid" /> New Region
         </dot:RouteLink> 
     </div>
-
+    
     <bp:GridView DataSource="{value: Regions}">
-        <bp:GridViewTextColumn ValueBinding="{value: Id}" HeaderText="Id" Width="50px" />
-        <bp:GridViewTextColumn ValueBinding="{value: RegionDescription}" HeaderText="Description" />
+        <bp:GridViewTextColumn Value="{value: Id}" HeaderText="Id" Width="50px" />
+        <bp:GridViewTextColumn Value="{value: RegionDescription}" HeaderText="Description" />
 
-        <bp:GridViewTemplateColumn CssClass="icon">
+        <bp:GridViewTemplateColumn HeaderCssClass="icon">
             <dot:RouteLink RouteName="Admin_RegionDetail" Param-Id="{value: Id}">
-                <bp:FAIcon Icon="Pencil" />
+                <bp:FAIcon Icon="PencilAltSolid" />
             </dot:RouteLink>
         </bp:GridViewTemplateColumn>
 
-        <bp:GridViewTemplateColumn CssClass="icon">
+        <bp:GridViewTemplateColumn HeaderCssClass="icon">
             <dot:LinkButton Click="{command: _root.Delete(Id)}">
                 <PostBack.Handlers>
                     <dot:ConfirmPostBackHandler Message="Do you really want to delete the region?" />
                 </PostBack.Handlers>
 
-                <bp:FAIcon Icon="Remove" />
+                <bp:FAIcon Icon="TrashSolid" />
             </dot:LinkButton>
         </bp:GridViewTemplateColumn>
     </bp:GridView>

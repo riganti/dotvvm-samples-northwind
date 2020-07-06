@@ -59,7 +59,7 @@ namespace NorthwindStore.App.ViewModels.Admin
             }
             catch (RegionAlreadyExistsException ex)
             {
-                Context.ModelState.Errors.Add(new ViewModelValidationError() { PropertyPath = nameof(CurrentItem.RegionDescription), ErrorMessage = ex.Message });
+                this.AddModelError(vm => vm.CurrentItem.RegionDescription, ex.Message);
                 Context.FailOnInvalidModelState();
             }
 

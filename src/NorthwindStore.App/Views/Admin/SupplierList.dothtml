@@ -10,21 +10,21 @@
 
     <div class="dotvvm-bp-grid-view dotvvm-bp-default dotvvm-bp-control">
         <dd:DynamicDataGridViewDecorator>
-            <dot:GridView DataSource="{value: Items}" class="bp-table">
+            <dot:GridView DataSource="{value: Items}" class="dotvvm-bp-primitive_table">
                 
-                <dot:GridViewTemplateColumn CssClass="icon">
+                <dot:GridViewTemplateColumn HeaderCssClass="icon">
                     <dot:RouteLink RouteName="Admin_SupplierDetail" Param-Id="{value: Id}">
-                        <bp:FAIcon Icon="Pencil" />
+                        <bp:FAIcon Icon="PencilAltSolid" />
                     </dot:RouteLink>
                 </dot:GridViewTemplateColumn>
 
-                <dot:GridViewTemplateColumn CssClass="icon">
+                <dot:GridViewTemplateColumn HeaderCssClass="icon">
                     <dot:LinkButton Click="{command: _root.Delete(Id)}">
                         <PostBack.Handlers>
                             <dot:ConfirmPostBackHandler Message="Do you really want to delete the supplier?" />
                         </PostBack.Handlers>
 
-                        <bp:FAIcon Icon="Remove" />
+                        <bp:FAIcon Icon="TrashSolid" />
                     </dot:LinkButton>
                 </dot:GridViewTemplateColumn>
             </dot:GridView>

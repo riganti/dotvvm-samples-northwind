@@ -6,20 +6,21 @@ This repository contains a sample line of business application written in DotVVM
 
 1. Go to the `db` folder. 
 
-1. If you don't have Micrososft SQL Server Express edition installed (`.\SQLEXPRESS`), edit the `northwind.cmd` file and change the server name.
+1. If you don't have Micrososft SQL Server Express edition installed (`.\SQLEXPRESS`), edit the `northwind.cmd` file and change the SQL server name (e.g. `(localdb)\mssqllocaldb`).
 You will have change the connection string in the application too (`src/NorthwindStore.DAL/AppDbContext.cs`).
 
 1. Run the `northwind.cmd`. It should create the database called `Northwind` with all the data.
 
 ## Running the application 
 
-1. Install the [DotVVM for Visual Studio](https://marketplace.visualstudio.com/items?itemName=TomasHerceg.DotVVMforVisualStudio-17892) extension if you don't have it.
+1. Install the [DotVVM for Visual Studio](https://www.dotvvm.com/install) extension.
 
-1. Sign up for an account on DotVVM.com and request access to [DotVVM Business Pack Beta Program](https://www.dotvvm.com/login) to get the beta version.
+1. Sign up for an account on DotVVM.com and request access to [DotVVM Business Pack 30-Days Trial Version](https://www.dotvvm.com/login) to get the beta version.
+If you already have a commercial version of DotVVM Business Pack, remove the `-trial` suffix from the package reference in `NorthwindStore.App.csproj`.
 
-1. Make sure to set up the [DotVVM Private Nuget Feed](https://www.dotvvm.com/docs/tutorials/commercial-dotvvm-private-nuget-feed/latest).
+1. Make sure to set up the [DotVVM Private Nuget Feed](https://www.dotvvm.com/docs/tutorials/commercial-dotvvm-private-nuget-feed/latest). If you've just installed the VS extension, it will ask you to sign in with your DotVVM account when you run the Visual Studio - it should configure the NuGet feed for you.
 
-1. Open the solution (`src/NorthwindStore.sln`) in Visual Studio 2017. 
+1. Open the solution (`src/NorthwindStore.sln`) in Visual Studio 2017/2019. 
 
 1. Run the `NorthwindStore.App` project. To sign into the app, use the following credentials:
 

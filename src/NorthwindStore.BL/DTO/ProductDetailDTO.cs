@@ -20,16 +20,12 @@ namespace NorthwindStore.BL.DTO
         [Required]
         public string QuantityPerUnit { get; set; }
 
-        [DotvvmEnforceClientFormat]
         public decimal? UnitPrice { get; set; }
 
-        [DotvvmEnforceClientFormat]
         public short? UnitsInStock { get; set; }
 
-        [DotvvmEnforceClientFormat]
         public short? UnitsOnOrder { get; set; }
 
-        [DotvvmEnforceClientFormat]
         public short? ReorderLevel { get; set; }
 
         public bool Discontinued { get; set; }
