@@ -29,8 +29,8 @@ namespace NorthwindStore.BL.Facades.Admin
 
         public void SaveImage(int categoryId, Stream stream)
         {
-            var buffer = new byte[stream.Length + 78];
-            stream.Read(buffer, 78, buffer.Length - 78);         // 78 bytes OLE header
+            var buffer = new byte[stream.Length];
+            stream.Read(buffer, 0, buffer.Length);
 
             using (var uow = UnitOfWorkProvider.Create())
             {

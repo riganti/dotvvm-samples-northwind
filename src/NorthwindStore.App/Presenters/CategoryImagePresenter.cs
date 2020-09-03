@@ -21,7 +21,7 @@ namespace NorthwindStore.App.Presenters
             var bytes = facade.GetImage(id);
 
             context.HttpContext.Response.ContentType = "image/jpeg";
-            context.HttpContext.Response.Body.Write(bytes, 78, bytes.Length - 78);      // cut off the OLE header
+            context.HttpContext.Response.Body.Write(bytes, 0, bytes.Length);
 
             return Task.CompletedTask;
         }
