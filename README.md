@@ -1,42 +1,51 @@
-# DotVVM Northwind LOB Sample
+# Northwind Store in DotVVM
 
-This repository contains a sample line of business application written in DotVVM, based on the Microsoft sample [Northwind](https://northwinddatabase.codeplex.com/) database. 
+This is a simple line of business application written in DotVVM, based on the well-known Microsoft sample Northwind database. 
 
-## Preparing the database
+![Screenshot](images/ns001.png)
 
-1. Go to the `db` folder. 
+## Prerequisites
+* Get access to the [DotVVM Business Pack](https://www.dotvvm.com/products/dotvvm-business-pack)
+    * You can request a **free 30-days trial**. To do that, [sign up for an account](https://www.dotvvm.com/login) at DotVVM website and request the trial of DotVVM Business Pack.
+    * If you have already purchased the license, you are all set.
+* Make sure you have installed [DotVVM for Visual Studio](https://www.dotvvm.com/install)
+* Sign in with your account in DotVVM for Visual Studio in order to be able to access the NuGet package with DotVVM Business Pack: ![Screenshot](images/ns002.png)
 
-1. If you don't have Micrososft SQL Server Express edition installed (`.\SQLEXPRESS`), edit the `northwind.cmd` file and change the SQL server name (e.g. `(localdb)\mssqllocaldb`).
-You will have change the connection string in the application too (`src/NorthwindStore.DAL/AppDbContext.cs`).
+## How to run the sample
 
-1. Run the `northwind.cmd`. It should create the database called `Northwind` with all the data.
+1. [Open the GitHub repo in Visual Studio](git-client://clone/?repo=https%3A%2F%2Fgithub.com%2Friganti%2Fdotvvm-samples-northwind)
+or 
+`git clone https://github.com/riganti/dotvvm-samples-northwind.git`
 
-## Running the application 
+2. Open `src/NorthwindStore.sln` 
+![Open the solution file](images/ns003.png)
 
-1. Install the [DotVVM for Visual Studio](https://www.dotvvm.com/install) extension.
+3. Right-click the `NorthwindStore.App` project and select **View > View in Browser**
+![View FlightFinder.Api in Browser](images/ns004.png)
 
-1. Sign up for an account on DotVVM.com and request access to [DotVVM Business Pack 30-Days Trial Version](https://www.dotvvm.com/login) to get the beta version.
-If you already have a commercial version of DotVVM Business Pack, remove the `-trial` suffix from the package reference in `NorthwindStore.App.csproj`.
+4. Use **admin** / **admin** credentials on the login screen.
 
-1. Make sure to set up the [DotVVM Private Nuget Feed](https://www.dotvvm.com/docs/tutorials/commercial-dotvvm-private-nuget-feed/latest). If you've just installed the VS extension, it will ask you to sign in with your DotVVM account when you run the Visual Studio - it should configure the NuGet feed for you.
+## What you can learn in the sample
 
-1. Open the solution (`src/NorthwindStore.sln`) in Visual Studio 2017/2019. 
+* How to make a simple CRUD page with DotVVM components (Regions section)
+* How to make generic CRUD ViewModels with extensibility points (Categories section)
+* How to work with modal dialogs and row selections (Products section)
+* How to generate the UI dynamically from the data model using [DotVVM Dynamic Data](https://github.com/riganti/dotvvm-dynamic-data) (Suppliers section)
+* How to create a global error-handling action filter
+* How to use a custom presenter to serve images from the database
+* How to use Application Insights and MiniProfiler with DotVVM to get diagnostics data
 
-1. Run the `NorthwindStore.App` project. To sign into the app, use the following credentials:
+---
 
-Username: `admin`
+# What's inside
 
-Password: `admin`
+The application demonstrates how DotVVM can be used in larger applications.
 
-## What's inside
+1. The `DAL` project (Data Access Layer) contains the `Entity Framework Core` model describing the SQL database.
 
-The application tries to explain how DotVVM should be used in larger applications.
-
-1. The `DAL` project contains the `Entity Framework Core` model describing the SQL database.
-
-2. The `BL` project contains the infrastructure for the application logic. It utilizes the [Riganti Utils Infrastructure](https://github.com/riganti/infrastructure) library.
-From the DotVVM perspective, only the classes in the `Facades` and `DTO` directories are interesting, because they contain all methods and model classes the application needs.
-DotVVM doesn't have any specific requirements on the business layer, however it is a good idea to have the application logic and DTO objects in a separate class library project.
+2. The `BL` project (Business Layer) contains the application logic. It utilizes the [Riganti Utils Infrastructure](https://github.com/riganti/infrastructure) library, but any other way of implementing and exposing business logic can be used.
+From the DotVVM perspective, only the classes in the `Facades` and `DTO` directories are interesting, because they contain all methods and model classes the application needs (aka __Model__).
+DotVVM doesn't have any specific requirements on the business layer, however it is a good idea to have the application logic and DTO objects in a separate class library project - do not pass Entity Framework entities in the presentation layer.
 
 3. The `App` project contains the application itself.
 
@@ -61,11 +70,14 @@ The sample uses the following libraries:
 * Castle Windsor
 * Riganti Utils Infrastructure
 
-## More Resources
+---
 
-* [DotVVM Website](https://www.dotvvm.com)
-* [DotVVM GitHub](https://github.com/riganti/dotvvm)
-* [Documentation](https://dotvvm.com/docs)
+## Other resources
+
 * [Gitter Chat](https://gitter.im/riganti/dotvvm)
-* [DotVVM Business Pack](https://www.dotvvm.com/landing/business-pack)
-
+* [DotVVM Official Website](https://www.dotvvm.com)
+* [DotVVM Documentation](https://www.dotvvm.com/docs)
+* [DotVVM GitHub](https://github.com/riganti/dotvvm)
+* [Twitter @dotvvm](https://twitter.com/dotvvm)
+* [Samples](https://www.dotvvm.com/samples)
+* [DotVVM Business Pack](https://www.dotvvm.com/products/dotvvm-business-pack)
