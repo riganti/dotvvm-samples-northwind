@@ -2,14 +2,14 @@
 
 This is a simple line of business application written in DotVVM, based on the well-known Microsoft sample Northwind database. 
 
-![Screenshot](images/ns001.png)
+![Screenshot](https://raw.githubusercontent.com/riganti/dotvvm-samples-northwind/master/images/ns001.png)
 
 ## Prerequisites
 * Get access to the [DotVVM Business Pack](https://www.dotvvm.com/products/dotvvm-business-pack)
     * You can request a **free 30-days trial**. To do that, [sign up for an account](https://www.dotvvm.com/login) at DotVVM website and request the trial of DotVVM Business Pack.
     * If you have already purchased the license, you are all set.
 * Make sure you have installed [DotVVM for Visual Studio](https://www.dotvvm.com/install)
-* Sign in with your account in DotVVM for Visual Studio in order to be able to access the NuGet package with DotVVM Business Pack: ![Screenshot](images/ns002.png)
+* Sign in with your account in DotVVM for Visual Studio in order to be able to access the NuGet package with DotVVM Business Pack: ![Screenshot](https://raw.githubusercontent.com/riganti/dotvvm-samples-northwind/master/images/ns002.png)
 
 ## How to run the sample
 
@@ -18,10 +18,10 @@ or
 `git clone https://github.com/riganti/dotvvm-samples-northwind.git`
 
 2. Open `src/NorthwindStore.sln` 
-![Open the solution file](images/ns003.png)
+![Open the solution file](https://raw.githubusercontent.com/riganti/dotvvm-samples-northwind/master/images/ns003.png)
 
 3. Right-click the `NorthwindStore.App` project and select **View > View in Browser**
-![View FlightFinder.Api in Browser](images/ns004.png)
+![View FlightFinder.Api in Browser](https://raw.githubusercontent.com/riganti/dotvvm-samples-northwind/master/images/ns004.png)
 
 4. Use **admin** / **admin** credentials on the login screen.
 
