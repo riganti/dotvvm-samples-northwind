@@ -1,5 +1,5 @@
 ﻿@viewModel NorthwindStore.App.ViewModels.Admin.AdminViewModel, NorthwindStore.App
-@masterPage Views/layout.dotmaster
+@masterPage Views/Layout.dotmaster
 
 <dot:Content ContentPlaceHolderID="MenuContent">
 

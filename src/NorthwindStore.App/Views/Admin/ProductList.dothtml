@@ -1,5 +1,5 @@
 ﻿@viewModel NorthwindStore.App.ViewModels.Admin.ProductListViewModel, NorthwindStore.App
-@masterPage Views/Admin/admin.dotmaster
+@masterPage Views/Admin/Admin.dotmaster
 
 <dot:Content ContentPlaceHolderID="AdminContent">
 
