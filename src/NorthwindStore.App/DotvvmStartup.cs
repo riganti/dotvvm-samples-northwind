@@ -7,6 +7,7 @@ using NorthwindStore.App.Filters;
 using NorthwindStore.App.Presenters;
 using DotVVM.Framework.Controls.DynamicData;
 using Microsoft.Extensions.DependencyInjection;
+using DotVVM.Diagnostics.ServerSideCache;
 
 namespace NorthwindStore.App
 {
@@ -22,6 +23,8 @@ namespace NorthwindStore.App
             ConfigureRoutes(config, applicationPath);
             ConfigureControls(config, applicationPath);
             ConfigureResources(config, applicationPath);
+
+            config.ExperimentalFeatures.ServerSideViewModelCache.EnableForAllRoutes();
         }
 
         private void ConfigureRoutes(DotvvmConfiguration config, string applicationPath)
@@ -54,6 +57,7 @@ namespace NorthwindStore.App
             options.AddBusinessPack();
 
             options.AddStatusPage();
+            options.AddServerSideCacheDiagnostics();
 
             options.AddDefaultTempStorages("Temp");
             options.AddMiniProfilerEventTracing();
@@ -61,6 +65,7 @@ namespace NorthwindStore.App
 
             var dynamicDataConfig = new AppDynamicDataConfiguration();
             options.AddDynamicData(dynamicDataConfig);
+
         }
     }
 }

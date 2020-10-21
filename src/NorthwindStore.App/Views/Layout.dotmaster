@@ -28,14 +28,16 @@
         </dot:AuthenticatedView>
 
     </div>
- 
-    <div class="content-container">
 
+    <div class="content-container">
         <dot:ContentPlaceHolder ID="MainContent" />
     </div>
 
-    <dot:MiniProfilerWidget Position="Right" ShowTrivial="true" StartHidden="true" />
-    <dot:ApplicationInsightsJavascript />
+    <%--<dot:MiniProfilerWidget Position="Right" ShowTrivial="true" StartHidden="true" />--%>
+    <%--<dot:ApplicationInsightsJavascript />--%>
+
+    <div class="console">See <a href="~/_diagnostics/cache" target="_blank">Server-side cache diagnostics</a><br /></div>
+    <script type="text/javascript" src="~/diag.js"></script>
 </body>
 </html>
 
