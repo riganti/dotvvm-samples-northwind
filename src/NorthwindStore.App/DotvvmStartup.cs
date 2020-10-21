@@ -26,7 +26,7 @@ namespace NorthwindStore.App
 
         private void ConfigureRoutes(DotvvmConfiguration config, string applicationPath)
         {
-            config.RouteTable.Add("Default", "", "Views/default.dothtml");
+            config.RouteTable.Add("Default", "", "Views/Default.dothtml");
             
             // category image presenter
             config.RouteTable.Add("CategoryImage", "image/category/{Id}", typeof(CategoryImagePresenter));
