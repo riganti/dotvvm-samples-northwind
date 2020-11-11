@@ -1,17 +1,17 @@
-# Northwind Store in DotVVM
+![Screenshot](https://raw.githubusercontent.com/riganti/dotvvm-samples-northwind/master/images/ns001.png)
+
+## Northwind Store in DotVVM
 
 This is a simple line of business application written in DotVVM, based on the well-known Microsoft sample Northwind database. 
 
-![Screenshot](https://raw.githubusercontent.com/riganti/dotvvm-samples-northwind/master/images/ns001.png)
-
-## Prerequisites
+### Prerequisites
 * Get access to the [DotVVM Business Pack](https://www.dotvvm.com/products/dotvvm-business-pack)
     * You can request a **free 30-days trial**. To do that, [sign up for an account](https://www.dotvvm.com/login) at DotVVM website and request the trial of DotVVM Business Pack.
     * If you have already purchased the license, you are all set.
 * Make sure you have installed [DotVVM for Visual Studio](https://www.dotvvm.com/install)
 * Sign in with your account in DotVVM for Visual Studio in order to be able to access the NuGet package with DotVVM Business Pack: ![Screenshot](https://raw.githubusercontent.com/riganti/dotvvm-samples-northwind/master/images/ns002.png)
 
-## How to run the sample
+### How to run the sample
 
 1. [Open the GitHub repo in Visual Studio](git-client://clone/?repo=https%3A%2F%2Fgithub.com%2Friganti%2Fdotvvm-samples-northwind)
 or 
@@ -25,7 +25,7 @@ or
 
 4. Use **admin** / **admin** credentials on the login screen.
 
-## What you can learn in the sample
+### What you can learn in the sample
 
 * How to make a simple CRUD page with DotVVM components (Regions section)
 * How to make generic CRUD ViewModels with extensibility points (Categories section)
