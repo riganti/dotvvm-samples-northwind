@@ -19,12 +19,19 @@ namespace NorthwindStore.App.Installers
 {
     public class DataAccessInstaller : IWindsorInstaller
     {
+        private readonly DbContextOptions<AppDbContext> dbContextOptions;
+
+        public DataAccessInstaller(string connectionString)
+        {
+            dbContextOptions = new DbContextOptionsBuilder<AppDbContext>().UseSqlServer(connectionString).Options;
+        }
+
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
 
                 Component.For<Func<AppDbContext>>()
-                    .Instance(() => new AppDbContext())
+                    .Instance(() => new AppDbContext(dbContextOptions))
                     .LifestyleSingleton(),
 
                 Component.For<IUnitOfWorkProvider>()

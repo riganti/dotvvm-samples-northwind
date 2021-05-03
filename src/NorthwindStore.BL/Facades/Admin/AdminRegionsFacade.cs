@@ -12,13 +12,13 @@ using Riganti.Utils.Infrastructure.Services.Facades;
 
 namespace NorthwindStore.BL.Facades.Admin
 {
-    public class AdminRegionsFacade : AppCrudFacadeBase<Regions, int, RegionDTO, RegionDTO>
+    public class AdminRegionsFacade : AppCrudFacadeBase<Region, int, RegionDTO, RegionDTO>
     {
-        public AdminRegionsFacade(Func<RegionListQuery> queryFactory, IRepository<Regions, int> repository, IEntityDTOMapper<Regions, RegionDTO> mapper) : base(queryFactory, repository, mapper)
+        public AdminRegionsFacade(Func<RegionListQuery> queryFactory, IRepository<Region, int> repository, IEntityDTOMapper<Region, RegionDTO> mapper) : base(queryFactory, repository, mapper)
         {
         }
 
-        protected override void PopulateDetailToEntity(RegionDTO detail, Regions entity)
+        protected override void PopulateDetailToEntity(RegionDTO detail, Region entity)
         {
             var query = QueryFactory();
             if (query.Execute().Any(r => string.Equals(r.RegionDescription.Trim(), detail.RegionDescription.Trim(), StringComparison.CurrentCultureIgnoreCase)))

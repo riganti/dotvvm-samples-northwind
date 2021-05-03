@@ -13,7 +13,7 @@ namespace NorthwindStore.BL.Queries
 
         protected override IQueryable<RegionDTO> GetQueryable()
         {
-            return Context.Regions
+            return Context.Region
                 .ProjectTo<RegionDTO>();
         }
     }

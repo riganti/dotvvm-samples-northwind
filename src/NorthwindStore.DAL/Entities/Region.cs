@@ -5,9 +5,9 @@ using Riganti.Utils.Infrastructure.Core;
 
 namespace NorthwindStore.DAL.Entities
 {
-    public partial class Regions : IEntity<int>
+    public partial class Region : IEntity<int>
     {
-        public Regions()
+        public Region()
         {
             Territories = new HashSet<Territories>();
         }

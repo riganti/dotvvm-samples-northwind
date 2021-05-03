@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NorthwindStore.App.Installers;
@@ -22,8 +23,17 @@ namespace NorthwindStore.App
 {
     public class Startup
     {
+        private readonly IConfiguration configuration;
         private static WindsorContainer container;
 
+        public Startup(IHostingEnvironment env)
+        {
+            this.configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: false)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+                .AddEnvironmentVariables()
+                .Build();
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -62,11 +72,16 @@ namespace NorthwindStore.App
             return WindsorRegistrationHelper.CreateServiceProvider(InitializeWindsor(), services);
         }
 
-        private static IWindsorContainer InitializeWindsor()
+        private IWindsorContainer InitializeWindsor()
         {
             container = new WindsorContainer();
             container.AddFacility<TypedFactoryFacility>();
-            container.Install(FromAssembly.Containing<Startup>());
+            container.Install(
+                new DataAccessInstaller(configuration.GetConnectionString("DB")),
+                new FacadeInstaller(), 
+                new PresentationInstaller(),
+                new AutoMapperInstaller()
+            );
 
             AutoMapperInstaller.InitAutoMapper(container);
 
