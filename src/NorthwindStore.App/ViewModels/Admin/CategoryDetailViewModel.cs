@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using DotVVM.BusinessPack.Controls;
+using DotVVM.Core.Storage;
 using DotVVM.Framework.Controls;
 using DotVVM.Framework.Storage;
 using DotVVM.Framework.ViewModel;
@@ -10,6 +12,7 @@ using NorthwindStore.App.ViewModels.Admin.Base;
 using NorthwindStore.BL.DTO;
 using NorthwindStore.BL.Facades.Admin;
 using NorthwindStore.BL.Facades.Admin.Base;
+using Riganti.Utils.Infrastructure.Core;
 
 namespace NorthwindStore.App.ViewModels.Admin
 {
@@ -46,18 +49,21 @@ namespace NorthwindStore.App.ViewModels.Admin
             PictureChanged = true;
         }
 
-        protected override void OnItemSaved()
+        protected override async Task OnItemSaved()
         {
+			if (CurrentItem.Description.StartsWith("A")) 
+			{
+				throw new UIException("Don't start category descriptions with A!");
+			}
+			
             if (PictureData.Files.Any())
             {
                 var file = PictureData.Files.First();
-                using (var stream = storage.GetFile(file.FileId))
-                {
-                    facade.SaveImage(CurrentItemId, stream);
-                }
+                await using var stream = await storage.GetFileAsync(file.FileId);
+                facade.SaveImage(CurrentItemId, stream);
             }
 
-            base.OnItemSaved();
+            await base.OnItemSaved();
         }
     }
 }

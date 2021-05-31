@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using DotVVM.BusinessPack.Controls;
 using DotVVM.Framework.Hosting;
 using DotVVM.Framework.ViewModel;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Riganti.Utils.Infrastructure.Core;
 
 namespace NorthwindStore.App.ViewModels
@@ -27,7 +28,7 @@ namespace NorthwindStore.App.ViewModels
 
         public async Task SignOut()
         {
-            await Context.GetAuthentication().SignOutAsync("Cookie");
+            await Context.GetAuthentication().SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             Context.RedirectToRoute("Default");
         }
 

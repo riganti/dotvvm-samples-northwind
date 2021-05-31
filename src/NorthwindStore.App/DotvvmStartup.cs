@@ -61,6 +61,8 @@ namespace NorthwindStore.App
 
             var dynamicDataConfig = new AppDynamicDataConfiguration();
             options.AddDynamicData(dynamicDataConfig);
+
+            options.AddViewHotReload();
         }
     }
 }

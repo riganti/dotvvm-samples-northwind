@@ -4,10 +4,10 @@
 <dot:Content ContentPlaceHolderID="AdminContent">
 
     <div class="toolbar">
-        <dot:RouteLink RouteName="Admin_ProductDetail" class="dotvvm-bp-button">
+        <dot:RouteLink RouteName="Admin_ProductDetail" class="dotvvm-bp-button dotvvm-bp-button_default dotvvm-bp-control">
             <bp:FAIcon Icon="PlusSolid" /> New Product
         </dot:RouteLink>
-        <dot:LinkButton Click="{staticCommand: OrderDialog.IsDisplayed = true}" class="dotvvm-bp-button" 
+        <dot:LinkButton Click="{staticCommand: OrderDialog.IsDisplayed = true}" class="dotvvm-bp-button dotvvm-bp-button_default dotvvm-bp-control"
                         Visible="{value: OrderDialog.SelectedProductIds.Count > 0}">
             <bp:FAIcon Icon="ListSolid" /> Order Items
         </dot:LinkButton>

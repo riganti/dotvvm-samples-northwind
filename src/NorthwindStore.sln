@@ -1,13 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31320.298
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthwindStore.App", "NorthwindStore.App\NorthwindStore.App.csproj", "{47561085-8C3A-4ABF-9DAB-0FDDF5FE619D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthwindStore.DAL", "NorthwindStore.DAL\NorthwindStore.DAL.csproj", "{DEC51287-ACA1-4ADC-B5DA-68FC048F276D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthwindStore.BL", "NorthwindStore.BL\NorthwindStore.BL.csproj", "{F81B13A7-58FB-417F-9FAD-DFBB7AEB329A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotvvm", "dotvvm", "{31A915B2-27F5-477F-913A-E78793FA464F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Core", "..\dotvvm\src\DotVVM.Core\DotVVM.Core.csproj", "{B912279D-121D-48A7-B2EC-7474055A6209}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Framework", "..\dotvvm\src\DotVVM.Framework\DotVVM.Framework.csproj", "{3CDBC822-E3B3-4C84-B459-F746D7880602}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Framework.Hosting.AspNetCore", "..\dotvvm\src\DotVVM.Framework.Hosting.AspNetCore\DotVVM.Framework.Hosting.AspNetCore.csproj", "{3A8C42EA-CEC2-44BB-8F83-0B470C41A4FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Diagnostics.ViewHotReload.AspNetCore", "..\hot-reload\src\DotVVM.Diagnostics.ViewHotReload.AspNetCore\DotVVM.Diagnostics.ViewHotReload.AspNetCore.csproj", "{3B121886-5872-4AD4-B349-D40FF425CB76}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotVVM.Diagnostics.ViewHotReload", "..\hot-reload\src\DotVVM.Diagnostics.ViewHotReload\DotVVM.Diagnostics.ViewHotReload.csproj", "{A4EDE4EF-2E8D-42BD-A1D7-685B27022330}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hot-reload", "hot-reload", "{902CED02-18AE-4CB5-B685-CF82416CDD7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,8 +41,38 @@ Global
 		{F81B13A7-58FB-417F-9FAD-DFBB7AEB329A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F81B13A7-58FB-417F-9FAD-DFBB7AEB329A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F81B13A7-58FB-417F-9FAD-DFBB7AEB329A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B912279D-121D-48A7-B2EC-7474055A6209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B912279D-121D-48A7-B2EC-7474055A6209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B912279D-121D-48A7-B2EC-7474055A6209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B912279D-121D-48A7-B2EC-7474055A6209}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CDBC822-E3B3-4C84-B459-F746D7880602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CDBC822-E3B3-4C84-B459-F746D7880602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CDBC822-E3B3-4C84-B459-F746D7880602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CDBC822-E3B3-4C84-B459-F746D7880602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A8C42EA-CEC2-44BB-8F83-0B470C41A4FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A8C42EA-CEC2-44BB-8F83-0B470C41A4FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A8C42EA-CEC2-44BB-8F83-0B470C41A4FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A8C42EA-CEC2-44BB-8F83-0B470C41A4FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B121886-5872-4AD4-B349-D40FF425CB76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B121886-5872-4AD4-B349-D40FF425CB76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B121886-5872-4AD4-B349-D40FF425CB76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B121886-5872-4AD4-B349-D40FF425CB76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4EDE4EF-2E8D-42BD-A1D7-685B27022330}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4EDE4EF-2E8D-42BD-A1D7-685B27022330}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4EDE4EF-2E8D-42BD-A1D7-685B27022330}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4EDE4EF-2E8D-42BD-A1D7-685B27022330}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B912279D-121D-48A7-B2EC-7474055A6209} = {31A915B2-27F5-477F-913A-E78793FA464F}
+		{3CDBC822-E3B3-4C84-B459-F746D7880602} = {31A915B2-27F5-477F-913A-E78793FA464F}
+		{3A8C42EA-CEC2-44BB-8F83-0B470C41A4FF} = {31A915B2-27F5-477F-913A-E78793FA464F}
+		{3B121886-5872-4AD4-B349-D40FF425CB76} = {902CED02-18AE-4CB5-B685-CF82416CDD7B}
+		{A4EDE4EF-2E8D-42BD-A1D7-685B27022330} = {902CED02-18AE-4CB5-B685-CF82416CDD7B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FDD0BF85-5EDC-4DA6-AF0B-691FA0FD05C9}
 	EndGlobalSection
 EndGlobal

@@ -23,7 +23,7 @@ namespace NorthwindStore.App.Controls
 
         public override void CreateControl(DotvvmControl container, PropertyDisplayMetadata property, DynamicDataContext context)
         {
-            var textBox = new DotVVM.BusinessPack.Controls.TextBox();
+            var textBox = new DotVVM.BusinessPack.Controls.TextBox(context.BindingCompilationService);
             container.Children.Add(textBox);
 
             var cssClass = ControlHelpers.ConcatCssClasses(ControlCssClass, property.Styles?.FormControlCssClass);

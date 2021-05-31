@@ -11,19 +11,16 @@ namespace NorthwindStore.BL.Facades
     public class LoginFacade : FacadeBase
     {
 
-        public ClaimsPrincipal SignIn(LoginDTO loginData)
+        public ClaimsIdentity SignIn(LoginDTO loginData, string authenticationType)
         {
             // TODO: incorporate ASP.NET Identity
 
             if (loginData.UserName == "admin" && loginData.Password == "admin")
             {
-                return new ClaimsPrincipal(
-                    new ClaimsIdentity(new[]
+                return new ClaimsIdentity(new[]
                     {
                         new Claim(ClaimTypes.Name, "admin")
-                    }, 
-                    "Cookie")
-                );
+                    }, authenticationType);
             }
 
             return null;

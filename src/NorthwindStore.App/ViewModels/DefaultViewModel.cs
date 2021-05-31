@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using DotVVM.BusinessPack.Controls;
 using DotVVM.Framework.Hosting;
 using DotVVM.Framework.ViewModel;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using NorthwindStore.BL.DTO;
 using NorthwindStore.BL.Facades;
 
@@ -28,7 +30,7 @@ namespace NorthwindStore.App.ViewModels
 
         public async Task SignIn()
         {
-            var identity = loginFacade.SignIn(Login);
+            var identity = loginFacade.SignIn(Login, CookieAuthenticationDefaults.AuthenticationScheme);
             if (identity == null)
             {
                 AlertText = "The credentials are not valid!";
@@ -36,7 +38,8 @@ namespace NorthwindStore.App.ViewModels
                 return;
             }
 
-            await Context.GetAuthentication().SignInAsync("Cookie", identity);
+            var principal = new ClaimsPrincipal(identity);
+            await Context.GetAuthentication().SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
             Context.RedirectToRoute("Admin_RegionList");
         }
     }

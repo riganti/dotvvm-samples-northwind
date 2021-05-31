@@ -11,7 +11,7 @@ using Riganti.Utils.Infrastructure.Services.Facades;
 
 namespace NorthwindStore.BL.Facades.Admin
 {
-    public class AdminCategoriesFacade : AppCrudFacadeBase<Categories, int, CategoryListDTO, CategoryDetailDTO>
+    public class AdminCategoriesFacade : AppFilteredCrudFacadeBase<Categories, int, CategoryListDTO, CategoryDetailDTO, CategoryFilterDTO>
     {
         public AdminCategoriesFacade(Func<CategoryListQuery> queryFactory, IRepository<Categories, int> repository, IEntityDTOMapper<Categories, CategoryDetailDTO> mapper) : base(queryFactory, repository, mapper)
         {

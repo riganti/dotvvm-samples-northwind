@@ -1,0 +1,6 @@
+[submodule "dotvvm"]
+	path = dotvvm
+	url = https://github.com/riganti/dotvvm.git
+[submodule "hot-reload"]
+	path = hot-reload
+	url = https://github.com/riganti/dotvvm-utils-hot-reload

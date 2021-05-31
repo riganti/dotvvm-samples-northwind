@@ -9,7 +9,7 @@ using NorthwindStore.BL.Facades.Admin;
 
 namespace NorthwindStore.App.ViewModels.Admin
 {
-    public class CategoryListViewModel : ListPageViewModel<CategoryListDTO, int>
+    public class CategoryListViewModel : FilteredListPageViewModel<CategoryListDTO, int, CategoryFilterDTO>
     {
         
         public CategoryListViewModel(AdminCategoriesFacade facade) : base(facade)

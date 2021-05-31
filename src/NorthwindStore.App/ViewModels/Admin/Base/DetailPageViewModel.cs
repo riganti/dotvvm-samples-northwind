@@ -60,27 +60,30 @@ namespace NorthwindStore.App.ViewModels.Admin.Base
         }
 
 
-        protected virtual void OnItemLoaded()
+        protected virtual Task OnItemLoaded()
         {
+            return Task.CompletedTask;
         }
 
-        protected virtual void OnItemSaving()
+        protected virtual Task OnItemSaving()
         {
+            return Task.CompletedTask;
         }
 
-        protected virtual void OnItemSaved()
+        protected virtual Task OnItemSaved()
         {
+            return Task.CompletedTask;
         }
 
 
-        public void Save()
+        public async Task Save()
         {
-            OnItemSaving();
+            await OnItemSaving();
 
             CurrentItem = Facade.Save(CurrentItem);
             CurrentItemId = CurrentItem.Id;
 
-            OnItemSaved();
+            await OnItemSaved();
 
             Context.RedirectToRoute(ListPageRouteName);
         }

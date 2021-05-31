@@ -4,10 +4,22 @@
 <dot:Content ContentPlaceHolderID="AdminContent">
 
     <div class="toolbar">
-        <dot:RouteLink RouteName="Admin_CategoryDetail" class="dotvvm-bp-button">
+        <dot:RouteLink RouteName="Admin_CategoryDetail" class="dotvvm-bp-button dotvvm-bp-button_default dotvvm-bp-control">
             <bp:FAIcon Icon="PlusSolid" /> New Category
         </dot:RouteLink>
     </div>
+
+    <bp:Panel HeaderText="Category Filters" DataContext="{value: Filter}">
+        <form> 
+            <div class="filter">
+                <label>Category Name</label>
+                <bp:TextBox Text="{value: SearchText}" placeholder="Search" />
+            </div>
+            <div class="filter-button">
+                <bp:Button Text="Apply Filter" Click="{command: _root.ApplyFilter()}" Validation.Enabled="false" IsSubmitButton="true" />
+            </div>
+        </form>
+    </bp:Panel>
 
     <bp:GridView DataSource="{value: Items}">
         <bp:GridViewTextColumn Value="{value: Id}" HeaderText="Id" Width="50px" />
