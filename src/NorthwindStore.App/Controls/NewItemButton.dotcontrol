@@ -2,7 +2,8 @@
 @baseType NorthwindStore.App.Controls.NewItemButton, NorthwindStore.App
 @noWrapperTag 
 
-<dot:RouteLink RouteName="{resource: _control.RouteName}" class="dotvvm-bp-button">
-    <bp:FAIcon Icon="PlusSolid" /> {{value: _control.Text}}
+<dot:RouteLink RouteName="{resource: _control.RouteName}" class="dotvvm-bp-button dotvvm-bp-control dotvvm-bp-button_default">
+    <bp:FAIcon Icon="PlusSolid" />
+    <bp:Text>{{value: _control.Text}}</bp:Text>
 </dot:RouteLink>
 

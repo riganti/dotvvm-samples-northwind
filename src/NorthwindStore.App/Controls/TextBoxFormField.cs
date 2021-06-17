@@ -14,8 +14,11 @@ namespace NorthwindStore.App.Controls
 {
     public class TextBoxFormField : HtmlGenericControl
     {
-        public TextBoxFormField() : base("div")
+        private readonly BindingCompilationService bindingCompilationService;
+
+        public TextBoxFormField(BindingCompilationService bindingCompilationService) : base("div")
         {
+            this.bindingCompilationService = bindingCompilationService;
         }
         
 
@@ -69,7 +72,7 @@ namespace NorthwindStore.App.Controls
             this.Children.Add(div);
 
             // create TextBox
-            var textBox = new DotVVM.BusinessPack.Controls.TextBox();
+            var textBox = new DotVVM.BusinessPack.Controls.TextBox(bindingCompilationService);
             textBox.SetBinding(TextBox.TextProperty, textBinding);
             if (Size == TextBoxFormFieldSize.Short)
             {

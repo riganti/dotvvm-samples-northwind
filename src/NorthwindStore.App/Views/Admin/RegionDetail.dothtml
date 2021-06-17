@@ -5,10 +5,12 @@
 
     <div class="toolbar">
         <bp:Button Click="{command: Save()}" ButtonTagName="button">
-            <bp:FAIcon Icon="SaveSolid" /> Save Changes
+            <bp:FAIcon Icon="SaveSolid" />
+            <bp:Text>Save Changes</bp:Text>
         </bp:Button> 
         <bp:Button Click="{command: Cancel()}" ButtonTagName="button" Validation.Enabled="false">
-            <bp:FAIcon Icon="UndoSolid" /> Cancel
+            <bp:FAIcon Icon="UndoSolid" />
+            <bp:Text>Cancel</bp:Text>
         </bp:Button> 
     </div>
 

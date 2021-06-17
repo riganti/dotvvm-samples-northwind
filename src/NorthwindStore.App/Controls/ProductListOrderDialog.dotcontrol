@@ -16,7 +16,7 @@
 
     </ContentTemplate>
     <FooterTemplate>
-        <bp:Button Text="Submit Order" Click="{command: SubmitOrder()}" />
+        <bp:Button Text="Submit Order" Click="{command: SubmitOrder()}" Type="Primary" />
         <bp:Button Text="Cancel" Click="{staticCommand: IsDisplayed = false}" Validation.Enabled="false" />
     </FooterTemplate>
 </bp:ModalDialog>

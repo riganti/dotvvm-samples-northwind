@@ -79,13 +79,18 @@ menu li a {
   color: white;
   text-decoration: none;
 }
+a {
+  color: dodgerblue;
+}
 a.dotvvm-bp-button {
   text-decoration: none;
-  color: inherit;
+  color: #333333;
 }
-a.dotvvm-bp-button i {
-  position: relative;
-  top: -2px;
+a.dotvvm-bp-button svg {
+  margin-right: 0.5em;
+}
+button svg {
+  margin-right: 0.5em;
 }
 .dotvvm-bp-panel {
   margin: 5px 0px !important;
@@ -205,7 +210,7 @@ a.dotvvm-bp-button i {
   margin-top: 10px;
   text-align: right;
 }
-.dotvvm-bp-dialog_footer {
+.dotvvm-bp-dialog .dotvvm-bp-primitive_footer {
   flex-direction: row;
   justify-content: flex-end;
 }

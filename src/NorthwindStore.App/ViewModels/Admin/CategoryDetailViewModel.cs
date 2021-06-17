@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using DotVVM.BusinessPack.Controls;
+using DotVVM.Core.Storage;
 using DotVVM.Framework.Controls;
-using DotVVM.Framework.Storage;
 using DotVVM.Framework.ViewModel;
 using NorthwindStore.App.ViewModels.Admin.Base;
 using NorthwindStore.BL.DTO;
@@ -46,18 +47,18 @@ namespace NorthwindStore.App.ViewModels.Admin
             PictureChanged = true;
         }
 
-        protected override void OnItemSaved()
+        protected override async Task OnItemSaved()
         {
             if (PictureData.Files.Any())
             {
                 var file = PictureData.Files.First();
-                using (var stream = storage.GetFile(file.FileId))
+                using (var stream = await storage.GetFileAsync(file.FileId))
                 {
                     facade.SaveImage(CurrentItemId, stream);
                 }
             }
 
-            base.OnItemSaved();
+            await base.OnItemSaved();
         }
     }
 }

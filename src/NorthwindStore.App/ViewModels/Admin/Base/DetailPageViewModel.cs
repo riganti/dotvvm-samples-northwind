@@ -41,7 +41,7 @@ namespace NorthwindStore.App.ViewModels.Admin.Base
             return base.Init();
         }
 
-        public override Task PreRender()
+        public override async Task PreRender()
         {
             if (!Context.IsPostBack)
             {
@@ -53,34 +53,37 @@ namespace NorthwindStore.App.ViewModels.Admin.Base
                 {
                     CurrentItem = Facade.InitializeNew();
                 }
-                OnItemLoaded();
+                await OnItemLoaded();
             }
 
-            return base.PreRender();
+            await base.PreRender();
         }
 
 
-        protected virtual void OnItemLoaded()
+        protected virtual Task OnItemLoaded()
         {
+            return Task.CompletedTask;
         }
 
-        protected virtual void OnItemSaving()
+        protected virtual Task OnItemSaving()
         {
+            return Task.CompletedTask;
         }
 
-        protected virtual void OnItemSaved()
+        protected virtual Task OnItemSaved()
         {
+            return Task.CompletedTask;
         }
 
 
-        public void Save()
+        public async Task Save()
         {
-            OnItemSaving();
+            await OnItemSaving();
 
             CurrentItem = Facade.Save(CurrentItem);
             CurrentItemId = CurrentItem.Id;
 
-            OnItemSaved();
+            await OnItemSaved();
 
             Context.RedirectToRoute(ListPageRouteName);
         }

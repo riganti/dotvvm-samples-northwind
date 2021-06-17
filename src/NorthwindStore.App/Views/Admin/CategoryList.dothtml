@@ -4,8 +4,9 @@
 <dot:Content ContentPlaceHolderID="AdminContent">
 
     <div class="toolbar">
-        <dot:RouteLink RouteName="Admin_CategoryDetail" class="dotvvm-bp-button">
-            <bp:FAIcon Icon="PlusSolid" /> New Category
+        <dot:RouteLink RouteName="Admin_CategoryDetail" class="dotvvm-bp-button dotvvm-bp-control dotvvm-bp-button_default">
+            <bp:FAIcon Icon="PlusSolid" />
+            <bp:Text>New Category</bp:Text>
         </dot:RouteLink>
     </div>
 
@@ -13,7 +14,8 @@
         <bp:GridViewTextColumn Value="{value: Id}" HeaderText="Id" Width="50px" />
 
         <bp:GridViewTemplateColumn HeaderText="Name">
-            <img src="{value: ImageUrl}" alt="{value: CategoryName}" class="grid-image" /> {{value: CategoryName}}
+            <img src="{value: ImageUrl}" alt="{value: CategoryName}" class="grid-image" />
+            <bp:Text>{{value: CategoryName}}</bp:Text>
         </bp:GridViewTemplateColumn>
         
         <bp:GridViewTextColumn Value="{value: Description}" HeaderText="Description" />

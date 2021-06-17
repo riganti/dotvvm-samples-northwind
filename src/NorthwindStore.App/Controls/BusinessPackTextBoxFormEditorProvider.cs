@@ -9,12 +9,15 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using DotVVM.Framework.Binding;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace NorthwindStore.App.Controls
 {
     public class BusinessPackTextBoxFormEditorProvider : FormEditorProviderBase
     {
         public override bool CanValidate => true;
+
 
         public override bool CanHandleProperty(PropertyInfo propertyInfo, DynamicDataContext context)
         {
@@ -23,7 +26,7 @@ namespace NorthwindStore.App.Controls
 
         public override void CreateControl(DotvvmControl container, PropertyDisplayMetadata property, DynamicDataContext context)
         {
-            var textBox = new DotVVM.BusinessPack.Controls.TextBox();
+            var textBox = new DotVVM.BusinessPack.Controls.TextBox(context.BindingCompilationService);
             container.Children.Add(textBox);
 
             var cssClass = ControlHelpers.ConcatCssClasses(ControlCssClass, property.Styles?.FormControlCssClass);

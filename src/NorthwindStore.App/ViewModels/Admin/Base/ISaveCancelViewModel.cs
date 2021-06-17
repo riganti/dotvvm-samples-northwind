@@ -1,9 +1,11 @@
-﻿namespace NorthwindStore.App.ViewModels.Admin.Base
+﻿using System.Threading.Tasks;
+
+namespace NorthwindStore.App.ViewModels.Admin.Base
 {
     public interface ISaveCancelViewModel
     {
 
-        void Save();
+        Task Save();
 
         void Cancel();
     }
