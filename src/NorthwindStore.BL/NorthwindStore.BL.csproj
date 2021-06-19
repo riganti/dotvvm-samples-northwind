@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!--<PackageReference Include="DotVVM.Core" Version="3.0.4" />-->
+    <PackageReference Include="DotVVM.Core" Version="3.1.0-preview05-final" />
     <PackageReference Include="DotVVM.DynamicData.Annotations" Version="3.0.0" />
     <PackageReference Include="Riganti.Utils.Infrastructure.AutoMapper" Version="2.3.0" />
     <PackageReference Include="Riganti.Utils.Infrastructure.DotVVM" Version="2.3.0" />
@@ -14,7 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\dotvvm\src\DotVVM.Core\DotVVM.Core.csproj" />
     <ProjectReference Include="..\NorthwindStore.DAL\NorthwindStore.DAL.csproj" />
   </ItemGroup>
 

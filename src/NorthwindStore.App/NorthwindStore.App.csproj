@@ -24,8 +24,10 @@
   <ItemGroup>
     <PackageReference Include="Castle.Windsor" Version="5.1.1" />
     <PackageReference Include="Castle.Windsor.MsDependencyInjection" Version="3.4.0" />
-    <PackageReference Include="DotVVM.BusinessPack" Version="3.0.0-preview03-final" />
+    <PackageReference Include="DotVVM.AspNetCore" Version="3.1.0-preview05-final" />
+    <PackageReference Include="DotVVM.BusinessPack" Version="3.1.0-preview01-113260" />
     <PackageReference Include="DotVVM.Diagnostics.StatusPage" Version="3.0.0" />
+    <PackageReference Include="DotVVM.Diagnostics.ViewHotReload.AspNetCore" Version="3.1.0-preview01-final" />
     <PackageReference Include="DotVVM.DynamicData" Version="3.0.0" />
     <PackageReference Include="DotVVM.Tracing.ApplicationInsights.AspNetCore" Version="3.0.0" />
     <PackageReference Include="DotVVM.Tracing.MiniProfiler.AspNetCore" Version="3.0.0" />
@@ -38,13 +40,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <!--<PackageReference Include="DotVVM.AspNetCore" Version="3.0.4" />-->
     <PackageReference Include="Riganti.Utils.Infrastructure.AspNetCore" Version="2.3.0" />
     <PackageReference Include="Riganti.Utils.Infrastructure.DotVVM" Version="2.3.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Dotvvm.Diagnostics.HotReload\src\DotVVM.Diagnostics.ViewHotReload.AspNetCore\DotVVM.Diagnostics.ViewHotReload.AspNetCore.csproj" />
-    <ProjectReference Include="..\..\dotvvm\src\DotVVM.Framework.Hosting.AspNetCore\DotVVM.Framework.Hosting.AspNetCore.csproj" />
     <ProjectReference Include="..\NorthwindStore.BL\NorthwindStore.BL.csproj" />
     <ProjectReference Include="..\NorthwindStore.DAL\NorthwindStore.DAL.csproj" />
   </ItemGroup>

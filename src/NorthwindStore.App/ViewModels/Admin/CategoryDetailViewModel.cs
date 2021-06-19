@@ -51,11 +51,11 @@ namespace NorthwindStore.App.ViewModels.Admin
 
         protected override async Task OnItemSaved()
         {
-			if (CurrentItem.Description.StartsWith("A")) 
-			{
-				throw new UIException("Don't start category descriptions with A!");
-			}
-			
+            if (CurrentItem.Description.StartsWith("A"))
+            {
+                throw new UIException("Don't start category descriptions with A!");
+            }
+
             if (PictureData.Files.Any())
             {
                 var file = PictureData.Files.First();
