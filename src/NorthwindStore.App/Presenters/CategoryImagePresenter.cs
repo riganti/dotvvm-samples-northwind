@@ -19,6 +19,7 @@ namespace NorthwindStore.App.Presenters
             var id = Convert.ToInt32(context.Parameters["Id"]);
 
             var bytes = facade.GetImage(id);
+            if (bytes == null) return;
 
             context.HttpContext.Response.ContentType = "image/jpeg";
             await context.HttpContext.Response.Body.WriteAsync(bytes, 0, bytes.Length);

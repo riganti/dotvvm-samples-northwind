@@ -23,7 +23,7 @@ namespace NorthwindStore.BL.Facades.Admin
             using (UnitOfWorkProvider.Create())
             {
                 var category = Repository.GetById(categoryId);
-                return category.Picture;
+                return category?.Picture;
             }
         }
 
