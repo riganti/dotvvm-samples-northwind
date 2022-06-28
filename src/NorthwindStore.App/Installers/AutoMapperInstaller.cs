@@ -6,7 +6,7 @@ using AutoMapper;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using NorthwindStore.BL.Mappings;
+using NorthwindStore.BL;
 
 namespace NorthwindStore.App.Installers
 {
@@ -15,26 +15,33 @@ namespace NorthwindStore.App.Installers
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
+                Classes.FromAssemblyContaining<BusinessLayer>()
+                    .BasedOn<Profile>()
+                    .WithServiceBase()
+                    .LifestyleSingleton(),
 
-                Classes.FromAssemblyContaining<IMapping>()
-                    .BasedOn<IMapping>()
-                    .WithServiceAllInterfaces()
+                Component.For<IMapper>()
+                    .UsingFactoryMethod(() =>
+                    {
+                        var mapperConfiguration = new MapperConfiguration(cfg =>
+                        {
+                            var profiles = container.ResolveAll<Profile>();
+
+                            foreach (var profile in profiles)
+                            {
+                                cfg.AddProfile(profile);
+                            }
+                        });
+                        return mapperConfiguration.CreateMapper();
+                    })
                     .LifestyleSingleton()
-
             );
         }
 
         internal static void InitAutoMapper(IWindsorContainer container)
         {
-            // configure all mappings now
-            Mapper.Initialize(mapper =>
-            {
-                foreach (var mapping in container.ResolveAll<IMapping>())
-                {
-                    mapping.ConfigureMaps(mapper);
-                }
-            });
-            Mapper.AssertConfigurationIsValid();
+            var mapper = container.Resolve<IMapper>();
+            mapper.ConfigurationProvider.AssertConfigurationIsValid();
         }
     }
 }

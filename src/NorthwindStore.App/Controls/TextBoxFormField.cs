@@ -57,9 +57,9 @@ namespace NorthwindStore.App.Controls
         protected override void OnInit(IDotvvmRequestContext context)
         {
             var textBinding = GetValueBinding(TextBindingProperty);
-            
+
             // set my properties
-            this.Attributes["class"] = "form-field";
+            this.SetAttribute("class", "form-field");
             this.SetBinding(Validator.ValueProperty, textBinding);
 
             // create label

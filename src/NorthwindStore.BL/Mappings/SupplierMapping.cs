@@ -4,16 +4,16 @@ using NorthwindStore.DAL.Entities;
 
 namespace NorthwindStore.BL.Mappings
 {
-    public class SupplierMapping : IMapping
+    public class SupplierMapping : Profile
     {
-        public void ConfigureMaps(IMapperConfigurationExpression mapper)
+        public SupplierMapping()
         {
-            mapper.CreateMap<Suppliers, SupplierBasicDTO>();
+            CreateMap<Suppliers, SupplierBasicDTO>();
 
-            mapper.CreateMap<Suppliers, SupplierListDTO>();
+            CreateMap<Suppliers, SupplierListDTO>();
 
-            mapper.CreateMap<Suppliers, SupplierDetailDTO>();
-            mapper.CreateMap<SupplierDetailDTO, Suppliers>()
+            CreateMap<Suppliers, SupplierDetailDTO>();
+            CreateMap<SupplierDetailDTO, Suppliers>()
                 .ForMember(s => s.Id, m => m.Ignore())
                 .ForMember(s => s.Products, m => m.Ignore());
         }

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using NorthwindStore.BL.DTO;
 using NorthwindStore.DAL.Entities;
@@ -11,7 +12,8 @@ namespace NorthwindStore.BL.Queries
         public ProductFilterDTO Filter { get; set; }
 
 
-        public ProductListQuery(IUnitOfWorkProvider unitOfWorkProvider) : base(unitOfWorkProvider)
+        public ProductListQuery(IUnitOfWorkProvider unitOfWorkProvider, IMapper mapper) 
+            : base(unitOfWorkProvider, mapper)
         {
         }
 
@@ -21,7 +23,7 @@ namespace NorthwindStore.BL.Queries
                 .FilterOptionalString(p => p.ProductName, Filter.SearchText, StringFilterMode.Contains)
                 .FilterOptional(p => p.CategoryId, Filter.CategoryId)
                 .FilterOptional(p => p.SupplierId, Filter.SupplierId)
-                .ProjectTo<ProductListDTO>();
+                .ProjectTo<ProductListDTO>(Mapper.ConfigurationProvider);
         }
 
     }

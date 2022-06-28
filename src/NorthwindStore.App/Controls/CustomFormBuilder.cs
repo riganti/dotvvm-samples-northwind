@@ -50,14 +50,14 @@ namespace NorthwindStore.App.Controls
         protected virtual HtmlGenericControl InitializeFormGroup(DotvvmControl hostControl, PropertyDisplayMetadata property, DynamicDataContext dynamicDataContext, out HtmlGenericControl labelElement, out HtmlGenericControl controlElement)
         {
             var formGroup = new HtmlGenericControl("div");
-            formGroup.Attributes["class"] = ControlHelpers.ConcatCssClasses(FormGroupCssClass, property.Styles?.FormRowCssClass);
+            formGroup.SetAttribute("class", ControlHelpers.ConcatCssClasses(FormGroupCssClass, property.Styles?.FormRowCssClass));
             hostControl.Children.Add(formGroup);
 
             labelElement = new HtmlGenericControl("label");
             formGroup.Children.Add(labelElement);
 
             controlElement = new HtmlGenericControl("div");
-            controlElement.Attributes["class"] = ControlHelpers.ConcatCssClasses(property.Styles?.FormControlContainerCssClass);
+            formGroup.SetAttribute("class", ControlHelpers.ConcatCssClasses(property.Styles?.FormControlContainerCssClass));
             formGroup.Children.Add(controlElement);
 
             return formGroup;
@@ -82,11 +82,11 @@ namespace NorthwindStore.App.Controls
             {
                 if (labelElement.Attributes.ContainsKey("class"))
                 {
-                    labelElement.Attributes["class"] = ControlHelpers.ConcatCssClasses(labelElement.Attributes["class"] as string, "dynamicdata-required");
+                    labelElement.SetAttribute("class", ControlHelpers.ConcatCssClasses(labelElement.Attributes["class"] as string, "dynamicdata-required"));
                 }
                 else
                 {
-                    labelElement.Attributes["class"] = "dynamicdata-required";
+                    labelElement.SetAttribute("class", "dynamicdata-required");
                 }
             }
 

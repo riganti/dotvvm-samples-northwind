@@ -32,7 +32,7 @@ namespace NorthwindStore.App.Controls
             var cssClass = ControlHelpers.ConcatCssClasses(ControlCssClass, property.Styles?.FormControlCssClass);
             if (!string.IsNullOrEmpty(cssClass))
             {
-                textBox.Attributes["class"] = cssClass;
+                textBox.SetAttribute("class", cssClass);
             }
 
             textBox.FormatString = property.FormatString;
