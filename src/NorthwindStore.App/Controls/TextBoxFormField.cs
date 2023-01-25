@@ -59,7 +59,7 @@ namespace NorthwindStore.App.Controls
             var textBinding = GetValueBinding(TextBindingProperty);
             
             // set my properties
-            this.Attributes["class"] = "form-field";
+            this.Attributes.Add("class", "form-field");
             this.SetBinding(Validator.ValueProperty, textBinding);
 
             // create label

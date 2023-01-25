@@ -11,30 +11,34 @@
     </div>
 
     <bp:GridView DataSource="{value: Items}">
-        <bp:GridViewTextColumn Value="{value: Id}" HeaderText="Id" Width="50px" />
+        <Columns>
+            <bp:GridViewTextColumn Value="{value: Id}" HeaderText="Id" Width="50px" />
 
-        <bp:GridViewTemplateColumn HeaderText="Name">
-            <img src="{value: ImageUrl}" alt="{value: CategoryName}" class="grid-image" />
-            <bp:Text>{{value: CategoryName}}</bp:Text>
-        </bp:GridViewTemplateColumn>
-        
-        <bp:GridViewTextColumn Value="{value: Description}" HeaderText="Description" />
+            <bp:GridViewTemplateColumn HeaderText="Name">
+                <img src="{value: ImageUrl}" alt="{value: CategoryName}" class="grid-image" />
+                <bp:Text>
+                    {{value: CategoryName}}
+                </bp:Text>
+            </bp:GridViewTemplateColumn>
 
-        <bp:GridViewTemplateColumn HeaderCssClass="icon">
-            <dot:RouteLink RouteName="Admin_CategoryDetail" Param-Id="{value: Id}">
-                <bp:FAIcon Icon="PencilAltSolid" />
-            </dot:RouteLink>
-        </bp:GridViewTemplateColumn>
+            <bp:GridViewTextColumn Value="{value: Description}" HeaderText="Description" />
 
-        <bp:GridViewTemplateColumn HeaderCssClass="icon">
-            <dot:LinkButton Click="{command: _root.Delete(Id)}">
-                <PostBack.Handlers>
-                    <dot:ConfirmPostBackHandler Message="Do you really want to delete the category?" />
-                </PostBack.Handlers>
+            <bp:GridViewTemplateColumn HeaderCssClass="icon">
+                <dot:RouteLink RouteName="Admin_CategoryDetail" Param-Id="{value: Id}">
+                    <bp:FAIcon Icon="PencilAltSolid" />
+                </dot:RouteLink>
+            </bp:GridViewTemplateColumn>
 
-                <bp:FAIcon Icon="TrashSolid" />
-            </dot:LinkButton>
-        </bp:GridViewTemplateColumn>
+            <bp:GridViewTemplateColumn HeaderCssClass="icon">
+                <dot:LinkButton Click="{command: _root.Delete(Id)}">
+                    <PostBack.Handlers>
+                        <dot:ConfirmPostBackHandler Message="Do you really want to delete the category?" />
+                    </PostBack.Handlers>
+
+                    <bp:FAIcon Icon="TrashSolid" />
+                </dot:LinkButton>
+            </bp:GridViewTemplateColumn>
+        </Columns>
     </bp:GridView>
 
     <bp:DataPager DataSet="{value: Items}" />

@@ -14,14 +14,12 @@
             </div>
         </div>
 
-        <%--<div class="form-field" Validator.Value="{value: ProductName}">
+        <div class="form-field" Validator.Value="{value: ProductName}">
             <label>Name</label>
             <div>
                 <bp:TextBox Text="{value: ProductName}" />
             </div>
-        </div>--%>
-
-        <cc:TextBoxFormField LabelText="Name" TextBinding="{value: ProductName}" />
+        </div>
 
         <div class="form-field">
             <label>Category</label>

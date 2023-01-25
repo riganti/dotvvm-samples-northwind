@@ -11,24 +11,26 @@
     </div>
     
     <bp:GridView DataSource="{value: Regions}">
-        <bp:GridViewTextColumn Value="{value: Id}" HeaderText="Id" Width="50px" />
-        <bp:GridViewTextColumn Value="{value: RegionDescription}" HeaderText="Description" />
+        <Columns>
+            <bp:GridViewTextColumn Value="{value: Id}" HeaderText="Id" Width="50px" />
+            <bp:GridViewTextColumn Value="{value: RegionDescription}" HeaderText="Description" />
 
-        <bp:GridViewTemplateColumn HeaderCssClass="icon">
-            <dot:RouteLink RouteName="Admin_RegionDetail" Param-Id="{value: Id}">
-                <bp:FAIcon Icon="PencilAltSolid" />
-            </dot:RouteLink>
-        </bp:GridViewTemplateColumn>
+            <bp:GridViewTemplateColumn HeaderCssClass="icon">
+                <dot:RouteLink RouteName="Admin_RegionDetail" Param-Id="{value: Id}">
+                    <bp:FAIcon Icon="PencilAltSolid" />
+                </dot:RouteLink>
+            </bp:GridViewTemplateColumn>
 
-        <bp:GridViewTemplateColumn HeaderCssClass="icon">
-            <dot:LinkButton Click="{command: _root.Delete(Id)}">
-                <PostBack.Handlers>
-                    <dot:ConfirmPostBackHandler Message="Do you really want to delete the region?" />
-                </PostBack.Handlers>
+            <bp:GridViewTemplateColumn HeaderCssClass="icon">
+                <dot:LinkButton Click="{command: _root.Delete(Id)}">
+                    <PostBack.Handlers>
+                        <dot:ConfirmPostBackHandler Message="Do you really want to delete the region?" />
+                    </PostBack.Handlers>
 
-                <bp:FAIcon Icon="TrashSolid" />
-            </dot:LinkButton>
-        </bp:GridViewTemplateColumn>
+                    <bp:FAIcon Icon="TrashSolid" />
+                </dot:LinkButton>
+            </bp:GridViewTemplateColumn>
+        </Columns>
     </bp:GridView>
 
     <bp:DataPager DataSet="{value: Regions}" />

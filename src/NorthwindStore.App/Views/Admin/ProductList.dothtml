@@ -41,36 +41,38 @@
             <dot:Decorator class-row-warning="{value: UnitsInStock + UnitsOnOrder < ReorderLevel}" />
         </RowDecorators>
 
-        <bp:GridViewTemplateColumn HeaderCssClass="icon">
-            <bp:CheckBox CheckedValue="{value: Id}" CheckedItems="{value: _root.OrderDialog.SelectedProductIds}" />
-        </bp:GridViewTemplateColumn>
+        <Columns>
+            <bp:GridViewTemplateColumn HeaderCssClass="icon">
+                <bp:CheckBox CheckedValue="{value: Id}" CheckedItems="{value: _root.OrderDialog.SelectedProductIds}" />
+            </bp:GridViewTemplateColumn>
 
-        <bp:GridViewTextColumn Value="{value: Id}" HeaderText="Id" Width="50px" />
-        <bp:GridViewTextColumn Value="{value: ProductName}" HeaderText="Name" />
-        <bp:GridViewTextColumn Value="{value: CategoryName}" HeaderText="Category" />
-        <bp:GridViewTextColumn Value="{value: SupplierName}" HeaderText="Supplier" />
-        <bp:GridViewTextColumn Value="{value: QuantityPerUnit}" HeaderText="Qty/Unit" />
-        <bp:GridViewTextColumn Value="{value: UnitPrice}" HeaderText="Unit Price" FormatString="c2" />
-        <bp:GridViewTextColumn Value="{value: UnitsInStock}" HeaderText="Units in Stock" FormatString="n2" />
-        <bp:GridViewTextColumn Value="{value: UnitsOnOrder}" HeaderText="Units on Order" FormatString="n2" />
-        <bp:GridViewTextColumn Value="{value: ReorderLevel}" HeaderText="Reorder Level" FormatString="n2" />
-        <bp:GridViewCheckBoxColumn Value="{value: Discontinued}" HeaderText="Discontinued" />
+            <bp:GridViewTextColumn Value="{value: Id}" HeaderText="Id" Width="50px" />
+            <bp:GridViewTextColumn Value="{value: ProductName}" HeaderText="Name" />
+            <bp:GridViewTextColumn Value="{value: CategoryName}" HeaderText="Category" />
+            <bp:GridViewTextColumn Value="{value: SupplierName}" HeaderText="Supplier" />
+            <bp:GridViewTextColumn Value="{value: QuantityPerUnit}" HeaderText="Qty/Unit" />
+            <bp:GridViewTextColumn Value="{value: UnitPrice}" HeaderText="Unit Price" FormatString="c2" />
+            <bp:GridViewTextColumn Value="{value: UnitsInStock}" HeaderText="Units in Stock" FormatString="n2" />
+            <bp:GridViewTextColumn Value="{value: UnitsOnOrder}" HeaderText="Units on Order" FormatString="n2" />
+            <bp:GridViewTextColumn Value="{value: ReorderLevel}" HeaderText="Reorder Level" FormatString="n2" />
+            <bp:GridViewCheckBoxColumn Value="{value: Discontinued}" HeaderText="Discontinued" />
 
-        <bp:GridViewTemplateColumn HeaderCssClass="icon">
-            <dot:RouteLink RouteName="Admin_ProductDetail" Param-Id="{value: Id}">
-                <bp:FAIcon Icon="PencilAltSolid" />
-            </dot:RouteLink>
-        </bp:GridViewTemplateColumn>
+            <bp:GridViewTemplateColumn HeaderCssClass="icon">
+                <dot:RouteLink RouteName="Admin_ProductDetail" Param-Id="{value: Id}">
+                    <bp:FAIcon Icon="PencilAltSolid" />
+                </dot:RouteLink>
+            </bp:GridViewTemplateColumn>
 
-        <bp:GridViewTemplateColumn HeaderCssClass="icon">
-            <dot:LinkButton Click="{command: _root.Delete(Id)}">
-                <PostBack.Handlers>
-                    <dot:ConfirmPostBackHandler Message="Do you really want to delete the product?" />
-                </PostBack.Handlers>
+            <bp:GridViewTemplateColumn HeaderCssClass="icon">
+                <dot:LinkButton Click="{command: _root.Delete(Id)}">
+                    <PostBack.Handlers>
+                        <dot:ConfirmPostBackHandler Message="Do you really want to delete the product?" />
+                    </PostBack.Handlers>
 
-                <bp:FAIcon Icon="TrashSolid" />
-            </dot:LinkButton>
-        </bp:GridViewTemplateColumn>
+                    <bp:FAIcon Icon="TrashSolid" />
+                </dot:LinkButton>
+            </bp:GridViewTemplateColumn>
+        </Columns>
     </bp:GridView>
 
     <bp:DataPager DataSet="{value: Items}" />

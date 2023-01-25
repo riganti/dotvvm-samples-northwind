@@ -11,22 +11,24 @@
     <div class="dotvvm-bp-grid-view dotvvm-bp-default dotvvm-bp-control">
         <dd:DynamicDataGridViewDecorator>
             <dot:GridView DataSource="{value: Items}" class="dotvvm-bp-primitive_table">
-                
-                <dot:GridViewTemplateColumn HeaderCssClass="icon">
-                    <dot:RouteLink RouteName="Admin_SupplierDetail" Param-Id="{value: Id}">
-                        <bp:FAIcon Icon="PencilAltSolid" />
-                    </dot:RouteLink>
-                </dot:GridViewTemplateColumn>
+                <Columns>
 
-                <dot:GridViewTemplateColumn HeaderCssClass="icon">
-                    <dot:LinkButton Click="{command: _root.Delete(Id)}">
-                        <PostBack.Handlers>
-                            <dot:ConfirmPostBackHandler Message="Do you really want to delete the supplier?" />
-                        </PostBack.Handlers>
+                    <dot:GridViewTemplateColumn HeaderCssClass="icon">
+                        <dot:RouteLink RouteName="Admin_SupplierDetail" Param-Id="{value: Id}">
+                            <bp:FAIcon Icon="PencilAltSolid" />
+                        </dot:RouteLink>
+                    </dot:GridViewTemplateColumn>
 
-                        <bp:FAIcon Icon="TrashSolid" />
-                    </dot:LinkButton>
-                </dot:GridViewTemplateColumn>
+                    <dot:GridViewTemplateColumn HeaderCssClass="icon">
+                        <dot:LinkButton Click="{command: _root.Delete(Id)}">
+                            <PostBack.Handlers>
+                                <dot:ConfirmPostBackHandler Message="Do you really want to delete the supplier?" />
+                            </PostBack.Handlers>
+                            <bp:FAIcon Icon="TrashSolid" />
+                        </dot:LinkButton>
+                    </dot:GridViewTemplateColumn>
+
+                </Columns>
             </dot:GridView>
         </dd:DynamicDataGridViewDecorator>
     </div>

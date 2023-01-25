@@ -10,6 +10,7 @@ namespace NorthwindStore.App.ViewModels
     public abstract class LayoutViewModel : DotvvmViewModelBase 
     {
 
+
         public abstract string PageTitle { get; }
 
 

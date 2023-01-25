@@ -27,14 +27,19 @@ namespace NorthwindStore.App.Installers
         internal static void InitAutoMapper(IWindsorContainer container)
         {
             // configure all mappings now
-            Mapper.Initialize(mapper =>
+            var mapperConfig = new MapperConfiguration(mapper =>
             {
                 foreach (var mapping in container.ResolveAll<IMapping>())
                 {
                     mapping.ConfigureMaps(mapper);
                 }
             });
-            Mapper.AssertConfigurationIsValid();
+            mapperConfig.AssertConfigurationIsValid();
+            container.Register(
+                Component.For<IMapper>()
+                    .UsingFactoryMethod(() => new Mapper(mapperConfig))
+                    .LifestyleSingleton()
+            );
         }
     }
 }

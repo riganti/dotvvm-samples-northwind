@@ -2,12 +2,13 @@
 using NorthwindStore.BL.DTO;
 using Riganti.Utils.Infrastructure.Core;
 using AutoMapper.QueryableExtensions;
+using AutoMapper;
 
 namespace NorthwindStore.BL.Queries
 {
     public class SupplierBasicListQuery : AppQueryBase<SupplierBasicDTO>
     {
-        public SupplierBasicListQuery(IUnitOfWorkProvider unitOfWorkProvider) : base(unitOfWorkProvider)
+        public SupplierBasicListQuery(IUnitOfWorkProvider unitOfWorkProvider, IMapper mapper) : base(unitOfWorkProvider, mapper)
         {
         }
 
@@ -15,7 +16,7 @@ namespace NorthwindStore.BL.Queries
         {
             return Context.Suppliers
                 .OrderBy(s => s.CompanyName)
-                .ProjectTo<SupplierBasicDTO>();
+                .ProjectTo<SupplierBasicDTO>(Mapper.ConfigurationProvider);
         }
     }
 }
