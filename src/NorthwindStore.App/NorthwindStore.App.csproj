@@ -25,12 +25,12 @@
 
     <PackageReference Include="Castle.Windsor" Version="5.1.2" />
     <PackageReference Include="Castle.Windsor.MsDependencyInjection" Version="3.4.0" />
-    <PackageReference Include="DotVVM.AspNetCore" Version="4.1.0-preview19-final" />
-    <PackageReference Include="DotVVM.BusinessPack" Version="4.1.0-preview18-final" />
+    <PackageReference Include="DotVVM.AspNetCore" Version="4.1.0" />
+    <PackageReference Include="DotVVM.BusinessPack" Version="4.1.0" />
     <PackageReference Include="DotVVM.Diagnostics.StatusPage" Version="3.0.0" />
-    <PackageReference Include="DotVVM.DynamicData" Version="4.1.0-preview19-final" />
-    <PackageReference Include="DotVVM.Tracing.ApplicationInsights.AspNetCore" Version="4.1.0-preview19-final" />
-    <PackageReference Include="DotVVM.Tracing.MiniProfiler.AspNetCore" Version="4.1.0-preview19-final" />
+    <PackageReference Include="DotVVM.DynamicData" Version="4.1.0" />
+    <PackageReference Include="DotVVM.Tracing.ApplicationInsights.AspNetCore" Version="4.1.0" />
+    <PackageReference Include="DotVVM.Tracing.MiniProfiler.AspNetCore" Version="4.1.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
       <PrivateAssets>all</PrivateAssets>
